@@ -1,4 +1,4 @@
-# Grupo 1.8 - Apoio psicológico
+# Grupo 8 - Apoio psicológico
 
 1. Thiago Silva das Mercês
 1. Daniel Kenzo Iwata
