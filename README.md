@@ -16,6 +16,10 @@ Atividade desenvolvida para a disciplina de Engenharia de Software da UFABC - mi
 
 Esta aplicação visa auxiliar as pessoas oferencendo um "pré" atendimento psicológico, em que a pessoa poderia entrar no sistema e ter uma conversa com um chatbot que poderia ajudar a pessoa a entender o que está sentindo, ou ajudar a se conhecer, a cada conversa, se o chatbot achar necessário, poderia indicar a pessoa a algum psicólogo ou a buscar atendimento. Outra opção seria descrever seu dia num diário que não teria nenhum comentário, apenas para que o usuário pudesse se sentir confortável e ter onde guardar algo mais pessoal.
 
+*** IMPORTANTE:
+
+    Esse projeto NÃO seguiu o conselho nem foi aprovado por qualquer órgão ou especialista ligado ao Conselho Federal de Psicologia
+
 Inicialmente o projeto seria dividido em 4 partes
 
 ### Diário pessoal
