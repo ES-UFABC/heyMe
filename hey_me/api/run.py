@@ -1,9 +1,10 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, jsonify, render_template, request, redirect, url_for, session
 from flask_mysqldb import MySQL
 from datetime import datetime
 import MySQLdb.cursors
 import regex
 import hashlib
+import time
 
 app = Flask(__name__)
 
@@ -64,7 +65,16 @@ def login():
 
 @app.route('/logout')
 def logout():
-   session.pop('loggedin', None)
-   session.pop('id', None)
-   session.pop('username', None)
-   return redirect(url_for('login'))
+    session.pop('loggedin', None)
+    session.pop('id', None)
+    session.pop('username', None)
+    return redirect(url_for('login'))
+
+
+@app.route('/time', methods=['GET', 'POST'])
+def timeT():
+    return {'time': time.asctime()}
+
+# @app.route('/teste', methods=['GET', 'POST'])
+# def teste():
+#  print('a')
