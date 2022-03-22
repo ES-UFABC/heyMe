@@ -17,9 +17,9 @@ Esta aplicação visa auxiliar as pessoas oferencendo um "pré" atendimento psic
 
 ### IMPORTANTE:
 
-    Esse projeto NÃO seguiu o conselho nem foi aprovado por qualquer órgão ou especialista ligado ao Conselho Federal de Psicologia
+    Esse projeto NÃO seguiu o conselho nem foi aprovado por qualquer órgão ou especialista ligado ao Conselho Federal de Psicologia.
 
-Inicialmente o projeto seria dividido em 4 partes
+Inicialmente o projeto seria dividido em 4 partes:
 
 ### Diário pessoal
 
@@ -27,12 +27,11 @@ A pessoa que usar vai poder fazer anotações diárias do que ela faz, do que co
 
 ### Chatbot companheiro
 
-Teria um chatbot pra dar instruções mais gerais sobre o que fazer se estiver se sentindo mal, bem também pra continuar bem
- Que pode explicar alguns problemas de forma mais simples, e instruir a buscar ajuda profissional sempre que possível.
+Teria um chatbot pra dar instruções mais gerais sobre o que fazer se estiver se sentindo mal, bem também pra continuar bem que pode explicar alguns problemas de forma mais simples, e instruir a buscar ajuda profissional sempre que possível.
 
 ### Busque ajuda 
 
-Ter uma parte que a pessoa pode mandar mensagem pra algum(a) psicólogo(a) dentro do app mesmo. Tipo mesmo que não possa fazer uma terapia continua de 1h ou sei lá, poder conversar com alguém "assincrono"
+Ter uma parte que a pessoa pode mandar mensagem pra algum(a) psicólogo(a) dentro do app mesmo. Tipo mesmo que não possa fazer uma terapia continua de 1h ou sei lá, poder conversar com alguém "assíncrono".
 
 ### Dia a dia 
 
