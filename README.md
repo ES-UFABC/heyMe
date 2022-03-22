@@ -4,7 +4,6 @@
 
 Atividade desenvolvida para a disciplina de Engenharia de Software da UFABC - ministrada pelo docente Paulo Meirelles. Pelos estudantes:
 
-1. Daniel Kenzo Iwata
 1. Leonardo Vaz Lourenço
 1. Letícia Matias de Araújo
 1. Lucas Kitahara
