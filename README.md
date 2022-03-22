@@ -1,8 +1,8 @@
 # heyMe
 
-### Apoio psicológico
+### Apoio Psicológico
 
-Atividade desenvolvida para a disciplina de Engenharia de Software da UFABC - ministrada pelo docente Paulo Meirelles. Pelos estudantes:
+Atividade desenvolvida para a disciplina de Engenharia de Software da UFABC - ministrada pelo docente Paulo Meirelles e, pelos estudantes:
 
 1. Leonardo Vaz Lourenço
 1. Letícia Matias de Araújo
@@ -10,50 +10,50 @@ Atividade desenvolvida para a disciplina de Engenharia de Software da UFABC - mi
 1. Lucca Ianaguivara Kisanucki
 1. Thiago Silva das Mercês
 
-
-## Descrição do projeto
-
-Esta aplicação visa auxiliar as pessoas oferencendo um "pré" atendimento psicológico, em que a pessoa poderia entrar no sistema e ter uma conversa com um chatbot que poderia ajudar a pessoa a entender o que está sentindo, ou ajudar a se conhecer, a cada conversa, se o chatbot achar necessário, poderia indicar a pessoa a algum psicólogo ou a buscar atendimento. Outra opção seria descrever seu dia num diário que não teria nenhum comentário, apenas para que o usuário pudesse se sentir confortável e ter onde guardar algo mais pessoal.
-
 ### IMPORTANTE:
 
-    Esse projeto NÃO seguiu o conselho nem foi aprovado por qualquer órgão ou especialista ligado ao Conselho Federal de Psicologia.
+    Esse projeto NÃO seguiu qualquer Conselho e nem foi aprovado por qualquer órgão ou especialista ligado ao Conselho Federal de Psicologia Brasileiro.
+
+## Descrição do Projeto
+
+Esta aplicação visa auxiliar as pessoas oferencendo um "pré" atendimento psicológico, em que o usuário poderá ter uma conversa com um chatbot, que por sua vez, auxiliaria o mesmo a entender o que está sentindo, ou ajudar a se conhecer.
+
+Consonantemente, a cada conversa, se o Chatbot achar necessário, poderá indicar encaminhamento psicólogo e/ou atendimento. Adicionalmente, há uma opção para relatar sua rotina através de um diário para que o usuário pudesse se sentir confortável e ter onde guardar algo mais íntimo. 
 
 Inicialmente o projeto seria dividido em 4 partes:
 
-### Diário pessoal
+### Diário Pessoal
 
-A pessoa que usar vai poder fazer anotações diárias do que ela faz, do que considera uma atitude que faz bem ou não pra ela.
+O usuário poderá fazer anotações diárias pessoais, levando em consideração suas atitudes e reflexões que fazem bem ou não pra si.
 
-### Chatbot companheiro
+### Chatbot Companheiro
 
-Teria um chatbot pra dar instruções mais gerais sobre o que fazer se estiver se sentindo mal, bem também pra continuar bem que pode explicar alguns problemas de forma mais simples, e instruir a buscar ajuda profissional sempre que possível.
+Chatbot com a finalidade de oferecer instruções gerais sobre o que fazer se a pessoa estiver se sentindo mal, mas também contribuir com aqueles que se sentem bem a manter os bons hábitos. O chatbot também poderá explicar alguns problemas de forma simplificada, e orientar a buscar ajuda profissional sempre que possível.
 
-### Busque ajuda 
+### Busque Ajuda 
 
-Ter uma parte que a pessoa pode mandar mensagem pra algum(a) psicólogo(a) dentro do app mesmo. Tipo mesmo que não possa fazer uma terapia continua de 1h ou sei lá, poder conversar com alguém "assíncrono".
+Funcionalidade em que a pessoa poderá mandar mensagem pra algum(a) psicólogo(a). Mesmo que o usuário não possa fazer uma terapia contínua, ele poderá conversar com alguém de forma "assíncrona".
 
 ### Dia a dia 
 
-Se der fazer algum cronograma com atividades pra ajudar a pessoa a se desenvolver melhor no dia.
-
+Cronograma com atividades pra ajudar a pessoa a se desenvolver melhor no dia a dia.
 
 ## Tecnologias Utilizadas
 
-* Python - Flask
+* Python - Flask;
 
-* React
+* React;
 
-* MySQL
+* MySQL.
 
 
 ## Instalação
 
-* TODO
+* TODO.
 
 ## Execução
 
-* TODO
+* TODO.
 
 ## Licença
 
