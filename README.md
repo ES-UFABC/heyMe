@@ -40,7 +40,7 @@ Se der fazer algum cronograma com atividades pra ajudar a pessoa a se desenvolve
 
 ## Tecnologias Utilizadas
 
-* Python
+* Python - Flask
 
 * React
 
