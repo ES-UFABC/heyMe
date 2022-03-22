@@ -18,11 +18,11 @@ app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
 mysql = MySQL(app)
 
-@app.route('/register', methods=['POST'])
+@app.route('/register_back', methods=['POST'])
 def register():
     msg = ''
-    if request.method == 'POST' and 'name' in request.form and 'password' in request.form and 'email' in request.form:
-        name = request.form['name']
+    if request.method == 'POST' and 'username' in request.form and 'password' in request.form and 'email' in request.form:
+        name = request.form['username']
         password = request.form['password']
         email = request.form['email']
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
@@ -44,7 +44,7 @@ def register():
         msg = 'Complete os campos faltantes!'
     return {'msg': msg}
 
-@app.route('/login', methods=['POST'])
+@app.route('/login_back', methods=['POST'])
 def login():
     msg = ''
     if request.method == 'POST' and 'email' in request.form and 'password' in request.form:
@@ -63,18 +63,9 @@ def login():
             msg = 'Email ou senha incorreta!'
     return {'msg': msg}
 
-@app.route('/logout')
+@app.route('/logout_back')
 def logout():
     session.pop('loggedin', None)
     session.pop('id', None)
     session.pop('username', None)
     return redirect(url_for('login'))
-
-
-@app.route('/time', methods=['GET', 'POST'])
-def timeT():
-    return {'time': time.asctime()}
-
-# @app.route('/teste', methods=['GET', 'POST'])
-# def teste():
-#  print('a')
