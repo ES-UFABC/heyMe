@@ -25,6 +25,7 @@ jwt = JWTManager(app)
 
 mysql = MySQL(app)
 
+<<<<<<< HEAD
 jwt_blocklist = []
 
 @jwt.token_in_blocklist_loader
@@ -33,10 +34,13 @@ def check_if_token_is_revoked(jwt_header, jwt_payload):
     return jti in jwt_blocklist
 
 @app.route('/register', methods=['POST'])
+=======
+@app.route('/register_back', methods=['POST'])
+>>>>>>> 397f69db76b5ccdb1e7d1dec6b381ff75129b7ec
 def register():
     msg = ''
-    if request.method == 'POST' and 'name' in request.form and 'password' in request.form and 'email' in request.form:
-        name = request.form['name']
+    if request.method == 'POST' and 'username' in request.form and 'password' in request.form and 'email' in request.form:
+        name = request.form['username']
         password = request.form['password']
         email = request.form['email']
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
@@ -59,7 +63,7 @@ def register():
         msg = 'Complete os campos faltantes!'
     return jsonify(msg=msg), 400
 
-@app.route('/login', methods=['POST'])
+@app.route('/login_back', methods=['POST'])
 def login():
     if request.method == 'POST' and 'email' in request.form and 'password' in request.form:
         email = request.form['email']
@@ -75,6 +79,7 @@ def login():
         return jsonify(msg='Complete os campos faltantes!'), 401
     return jsonify(msg='Email ou senha incorreta!'), 401
 
+<<<<<<< HEAD
 @app.route("/logout", methods=["DELETE"])
 @jwt_required()
 def logout():
@@ -96,3 +101,11 @@ def timeT():
 def protected():
     claims = get_jwt()
     return jsonify(id=claims["user_id"], name=claims["name"], email=claims["email"])
+=======
+@app.route('/logout_back')
+def logout():
+    session.pop('loggedin', None)
+    session.pop('id', None)
+    session.pop('username', None)
+    return redirect(url_for('login'))
+>>>>>>> 397f69db76b5ccdb1e7d1dec6b381ff75129b7ec
