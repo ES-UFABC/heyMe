@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Link,
   import './App.css';
   import Login from './Login';
   import Register from './Register';
+  import Welcome from './Welcome';
 	
   function App() {
 	return (
@@ -15,6 +16,7 @@ import {BrowserRouter as Router, Link,
 			<Route path="/" element={<Login />} />
 			<Route path="/login" element={<Login />} />
 			<Route path="/register" element={<Register />} />
+			<Route path="/welcome" element={<Welcome />} />
 		  </Routes>
 	   </Router>
 	  </div>

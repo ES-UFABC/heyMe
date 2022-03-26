@@ -112,6 +112,17 @@ body {
   color: #ffffff;
   transition: background-color 0.2s;
 }
+.login form button[type="button"], .register form button[type="button"] {
+  width: 100%;
+  padding: 15px;
+  margin-top: 20px;
+  background-color: #efcc00;
+  border: 0;
+  cursor: pointer;
+  font-weight: bold;
+  color: #ffffff;
+  transition: background-color 0.2s;
+}
 .login form input[type="submit"]:hover, .register form input[type="submit"]:hover {
   background-color: #fcd601;
   transition: background-color 0.2s;
