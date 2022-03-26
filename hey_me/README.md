@@ -68,3 +68,59 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+# Downloading and Installing Python
+
+### Download Page
+
+The most recent version of Python is available here: [https://www.python.org/downloads/](https://www.python.org/downloads/)
+
+You should download a version compatible with your Operational System.
+
+### Settings
+
+Use the default settings to configure Python in your computer.
+
+### Installing Flask
+
+Use the following command in your shell prompt to install Flask:
+
+```
+pip install flask
+
+```
+
+# Downloading and Installing Node.js
+
+### Download Page
+
+Node.js is available here for download: [https://nodejs.org/en/](https://nodejs.org/en/)
+
+### Installing
+
+Run the installer and follow the installer steps. 
+
+### Testing Node.js in the Command Prompt
+
+```
+node -v
+
+```
+
+### Installing the package module NPM:
+
+```
+npm install
+
+```
+
+### Testing npm:
+
+```
+npm -v
+
+```
+
+
+
+
