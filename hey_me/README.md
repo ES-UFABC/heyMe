@@ -86,7 +86,7 @@ Use the default settings to configure Python in your computer.
 Use the following command in your shell prompt to install Flask:
 
 ```
-pip install flask
+pip install Flask
 
 ```
 
