@@ -4,19 +4,18 @@ import {BrowserRouter as Router, Link,
   import Login from './Login';
   import Register from './Register';
   import Welcome from './Welcome';
+  import Diario from './Diario';
 	
   function App() {
 	return (
 	  <div className="App">
 		<Router>
-		  <nav>
-			<Link to="/">Login</Link>
-		  </nav>
 		  <Routes>
 			<Route path="/" element={<Login />} />
 			<Route path="/login" element={<Login />} />
 			<Route path="/register" element={<Register />} />
 			<Route path="/welcome" element={<Welcome />} />
+			<Route path="/diario" element={<Diario />} />
 		  </Routes>
 	   </Router>
 	  </div>

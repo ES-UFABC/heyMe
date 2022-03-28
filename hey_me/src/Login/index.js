@@ -9,13 +9,14 @@ function Login() {
 			'email': document.getElementById('email').value,
 			'password': document.getElementById('password').value
 		};
-		const article = { title: 'React POST Request Example' };
 		axios.post('/login_back', sendData)
             .then(function(response){
-				alert(response.data);
 				res = response.data;
                 console.log(res['success']);
+
 				if (res['success'] == true) {
+					localStorage.setItem('token', res['access_token']);
+					console.log('token on login', res['access_token']);
 					navigate('/welcome');
 				}
        //Perform action based on response

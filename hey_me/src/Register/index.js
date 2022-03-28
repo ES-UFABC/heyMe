@@ -29,11 +29,11 @@ function Register() {
 		
 	}
 	return (
-		<div class="register">
+		<div className="register">
 			<h1>Registrar-se</h1>
-			<div class="links">
+			<div className="links">
 				<a href="/login">Logar</a>
-				<a href="/register" class="active">Registrar</a>
+				<a href="/register" className="active">Registrar</a>
 			</div>
 			<form>
 				<label for="username">
