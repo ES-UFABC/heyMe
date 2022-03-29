@@ -7,11 +7,10 @@
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.26.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.3.1",
-    "react-native": "^0.67.4",
     "react-router-dom": "^6.2.2",
     "react-scripts": "4.0.3",
     "react-transition-group": "^4.4.2",
@@ -43,8 +42,8 @@
     ]
   },
   "proxy": "http://heymeapi-env-1.eba-5rahmizp.us-east-1.elasticbeanstalk.com/",
-  "engines" : { 
-    "npm" : ">=7.0.0",
-    "node" : ">=16.0.0"
+  "engines" : {
+    "npm":"8.5.0",
+    "node":"v16.14.2"
   }
 }
