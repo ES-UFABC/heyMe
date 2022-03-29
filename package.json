@@ -42,5 +42,9 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://heymeapi-env-1.eba-5rahmizp.us-east-1.elasticbeanstalk.com/"
+  "proxy": "http://heymeapi-env-1.eba-5rahmizp.us-east-1.elasticbeanstalk.com/",
+  "engines" : { 
+    "npm" : ">=7.0.0",
+    "node" : ">=16.0.0"
+  }
 }
