@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "react-native": "^0.67.4",
-    "react-router-dom": "^6.2.2"
-  }
-}
