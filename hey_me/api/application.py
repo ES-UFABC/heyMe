@@ -8,24 +8,24 @@ import hashlib
 import os
 import time
 
-app = Flask(__name__)
+application = Flask(__name__)
 
-app.secret_key = '7e0c336cc44b'
+application.secret_key = '7e0c336cc44b'
 
 ACCESS_EXPIRES = timedelta(hours=1)
 
-app.config['JWT_SECRET_KEY'] = '7e0c336cc44b'
-app.config["JWT_ACCESS_TOKEN_EXPIRES"] = ACCESS_EXPIRES
-app.config['MYSQL_USER'] = 'ufabc_admin'
-app.config['MYSQL_PASSWORD'] = 'bDVTFqCMZbaju5jH'
-app.config['MYSQL_HOST'] = 'db-heyme.ckdrbbsyt0ye.us-east-1.rds.amazonaws.com'
-app.config['MYSQL_DB'] = 'heyMe'
-app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
+application.config['JWT_SECRET_KEY'] = '7e0c336cc44b'
+application.config["JWT_ACCESS_TOKEN_EXPIRES"] = ACCESS_EXPIRES
+application.config['MYSQL_USER'] = 'ufabc_admin'
+application.config['MYSQL_PASSWORD'] = 'bDVTFqCMZbaju5jH'
+application.config['MYSQL_HOST'] = 'db-heyme.ckdrbbsyt0ye.us-east-1.rds.amazonaws.com'
+application.config['MYSQL_DB'] = 'heyMe'
+application.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
 
-jwt = JWTManager(app)
+jwt = JWTManager(application)
 
-mysql = MySQL(app)
+mysql = MySQL(application)
 
 jwt_blocklist = []
 
@@ -34,7 +34,7 @@ def check_if_token_is_revoked(jwt_header, jwt_payload):
     jti = jwt_payload["jti"]
     return jti in jwt_blocklist
 
-@app.route('/register_back', methods=['POST'])
+@application.route('/register_back', methods=['POST'])
 def register():
     data = request.get_json()
     msg = ''
@@ -63,7 +63,7 @@ def register():
         msg = 'Complete os campos faltantes!'
         return {'success': False, 'msg': msg}
 
-# @app.route('/login_back', methods=['POST'])
+# @application.route('/login_back', methods=['POST'])
 # def login():
 #     data = request.get_json()
 #     success = True
@@ -85,7 +85,7 @@ def register():
 #             success = False
 #     return {'success': success, 'msg': msg}
 
-@app.route('/login_back', methods=['POST'])
+@application.route('/login_back', methods=['POST'])
 def login():
     data = request.get_json()
     if data['email'] and data['password']:
@@ -102,20 +102,23 @@ def login():
         return jsonify(success=False, msg='Complete os campos faltantes!', code=401)
     return jsonify(msg='Email ou senha incorreta!', success=False), 401
 
-@app.route("/logout_back", methods=["DELETE"])
+@application.route("/logout_back", methods=["DELETE"])
 @jwt_required()
 def logout():
     jti = get_jwt()["jti"]
     jwt_blocklist.append(jti)
     return jsonify(msg="Deslogado")
 
-@app.route('/time', methods=['POST'])
+@application.route('/time', methods=['POST'])
 def get_current_time():
     print('get time')
     return {'time': time.time()}
 
-@app.route("/protected", methods=["GET"])
+@application.route("/protected", methods=["GET"])
 @jwt_required()
 def protected():
     claims = get_jwt()
     return jsonify(id=claims["user_id"], username=claims["username"], email=claims["email"])
+
+if __name__ == "__main__":
+    application.run()

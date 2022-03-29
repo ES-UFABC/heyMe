@@ -1,0 +1,6 @@
+Flask==2.1.0
+Flask-JWT-Extended==4.3.1
+Flask-MySQLdb==1.0.1
+mysqlclient==2.1.0
+regex==2022.3.15
+SQLAlchemy==1.4.32
