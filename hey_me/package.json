@@ -13,7 +13,7 @@
     "react-icons": "^4.3.1",
     "react-native": "^0.67.4",
     "react-router-dom": "^6.2.2",
-    "react-scripts": "5.0.0",
+    "react-scripts": "4.0.3",
     "react-transition-group": "^4.4.2",
     "styled-components": "^5.3.3",
     "web-vitals": "^2.1.4"
@@ -42,5 +42,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "http://heymeapi-env-1.eba-5rahmizp.us-east-1.elasticbeanstalk.com/"
 }
