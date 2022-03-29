@@ -42,8 +42,8 @@
     ]
   },
   "proxy": "http://heymeapi-env-1.eba-5rahmizp.us-east-1.elasticbeanstalk.com/",
-  "engines" : {
-    "npm":"8.5.0",
-    "node":"v16.14.0"
+  "engines" : { 
+    "node": "v16.14.0",
+    "npm": "8.3.1"
   }
 }
