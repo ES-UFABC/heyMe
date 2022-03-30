@@ -35,7 +35,10 @@ export default function Header() {
 
   function handleClick() {
     const config = {
-        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+        headers: { 
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+          "Origin": "https://main.d1w1cxbdfenujy.amplifyapp.com/"
+        }
     };
 
     var res;

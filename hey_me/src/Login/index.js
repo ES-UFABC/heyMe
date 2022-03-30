@@ -9,7 +9,12 @@ function Login() {
 			'email': document.getElementById('email').value,
 			'password': document.getElementById('password').value
 		};
-		axios.post(`${localStorage.getItem("api-endpoint")}/login_back`, sendData)
+		let config = {
+			header:{
+				"Origin": "https://main.d1w1cxbdfenujy.amplifyapp.com/"
+			}
+		};
+		axios.post(`${localStorage.getItem("api-endpoint")}/login_back`, sendData, config)
             .then(function(response){
 				res = response.data;
                 console.log(res['success']);

@@ -11,8 +11,13 @@ function Register() {
 			'password': document.getElementById('password').value,
 			'username': document.getElementById('username').value
 		};
+		let config = {
+			header:{
+				"Origin": "https://main.d1w1cxbdfenujy.amplifyapp.com/"
+			}
+		};
 		const article = { title: 'React POST Request Example' };
-		axios.post(`${localStorage.getItem("api-endpoint")}/register_back`, sendData)
+		axios.post(`${localStorage.getItem("api-endpoint")}/register_back`, sendData, config)
 			.then(function(response) {
 				//Perform action based on response
 				// alert(response.data);
