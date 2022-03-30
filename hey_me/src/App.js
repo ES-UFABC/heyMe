@@ -7,6 +7,7 @@ import {BrowserRouter as Router, Link,
   import Diario from './Diario';
 	
   function App() {
+	localStorage.setItem("api-endpoint","http://heymeapi-env-1.eba-5rahmizp.us-east-1.elasticbeanstalk.com");
 	return (
 	  <div className="App">
 		<Router>

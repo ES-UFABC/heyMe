@@ -41,7 +41,7 @@ export default function Header() {
     var res;
     console.log('token on logout', localStorage.getItem('token'));
 
-    axios.delete('/logout_back', config)
+    axios.delete(`${localStorage.getItem("api-endpoint")}/logout_back`, config)
             .then(function(response){
 				res = response.data;
         console.log(res);

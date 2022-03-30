@@ -12,7 +12,7 @@ function Register() {
 			'username': document.getElementById('username').value
 		};
 		const article = { title: 'React POST Request Example' };
-		axios.post('/register_back', sendData)
+		axios.post(`${localStorage.getItem("api-endpoint")}/register_back`, sendData)
 			.then(function(response) {
 				//Perform action based on response
 				// alert(response.data);
