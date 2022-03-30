@@ -9,7 +9,7 @@ function Login() {
 			'email': document.getElementById('email').value,
 			'password': document.getElementById('password').value
 		};
-		axios.post('/login_back', sendData)
+		axios.post(`${localStorage.getItem("api-endpoint")}/login_back`, sendData)
             .then(function(response){
 				res = response.data;
                 console.log(res['success']);
