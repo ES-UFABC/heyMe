@@ -45,7 +45,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 body {
-  background-color: #435165;
+  background-image: url('../src/assets/fundo.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
   margin: 0;
 }
 .login, .register {

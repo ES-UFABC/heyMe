@@ -28,8 +28,9 @@ function Register() {
 				}
 		})
 		.catch(function(error){
-		   //Perform action based on error
-			console.log(error);
+			//Perform action based on error
+			window.confirm('Dados incorretos! Por favor, verifique novamente');
+		    console.log(error);
 		});
 		
 	}
@@ -44,15 +45,19 @@ function Register() {
 				<label for="username">
 					<i className="fas fa-user"></i>
 				</label>
-				<input type="text" name="username" placeholder="Nome de usuário" id="username" required/>
-				<label for="password">
-					<i className="fas fa-lock"></i>
-				</label>
-				<input type="password" name="password" placeholder="Senha" id="password" required/>
+				<input type="text" name="username" placeholder="Nome" id="username" required/>
+				
 				<label for="email">
 					<i className="fas fa-envelope"></i>
 				</label>
 				<input type="email" name="email" placeholder="E-mail" id="email" required/>
+
+				<label for="password">
+					<i className="fas fa-lock"></i>
+				</label>
+				<input type="password" name="password" placeholder="Senha" id="password" required/>
+
+				
 				<button type="button" name="btnRegister" onClick={handleClick}>Registrar</button>
 			</form>
 		</div>
