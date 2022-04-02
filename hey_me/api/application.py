@@ -5,8 +5,6 @@ from datetime import datetime, timedelta
 import MySQLdb.cursors
 import regex
 import hashlib
-import os
-import time
 
 application = Flask(__name__)
 
@@ -29,10 +27,12 @@ mysql = MySQL(application)
 
 jwt_blocklist = []
 
+
 @jwt.token_in_blocklist_loader
 def check_if_token_is_revoked(jwt_header, jwt_payload):
     jti = jwt_payload["jti"]
     return jti in jwt_blocklist
+
 
 @application.route('/register_back', methods=['POST'])
 def register():
@@ -55,7 +55,8 @@ def register():
         elif not name or not password or not email:
             msg = 'Complete os campos faltantes!'
         else:
-            cursor.execute('INSERT INTO heyMe.user VALUES (null, %s, %s, %s, %s)', (email, hashlib.sha256(password.encode()).hexdigest(), name, datetime.now()))
+            cursor.execute('INSERT INTO heyMe.user VALUES (null, %s, %s, %s, %s)', (
+                email, hashlib.sha256(password.encode()).hexdigest(), name, datetime.now()))
             mysql.connection.commit()
             msg = 'Registrado com sucesso!'
             return {'success': True, 'msg': msg}
@@ -63,27 +64,6 @@ def register():
         msg = 'Complete os campos faltantes!'
         return {'success': False, 'msg': msg}
 
-# @application.route('/login_back', methods=['POST'])
-# def login():
-#     data = request.get_json()
-#     success = True
-#     msg = ''
-#     if data['email'] and data['password']:
-#         email = data['email']
-#         password = data['password']
-#         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-#         cursor.execute('SELECT * FROM heyMe.user WHERE email = %s AND password = %s', (email, hashlib.sha256(password.encode()).hexdigest(),))
-#         account = cursor.fetchone()
-#         if account:
-#             session['loggedin'] = True
-#             session['id'] = account['id']
-#             session['name'] = account['name']
-#             session['email'] = account['email']
-#             msg = 'Logado com sucesso!'
-#         else:
-#             msg = 'Email ou senha incorreta!'
-#             success = False
-#     return {'success': success, 'msg': msg}
 
 @application.route('/login_back', methods=['POST'])
 def login():
@@ -92,15 +72,19 @@ def login():
         email = data['email']
         password = data['password']
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM heyMe.user WHERE email = %s AND password = %s', (email, hashlib.sha256(password.encode()).hexdigest(),))
+        cursor.execute('SELECT * FROM heyMe.user WHERE email = %s AND password = %s',
+                       (email, hashlib.sha256(password.encode()).hexdigest(),))
         account = cursor.fetchone()
         if account:
-            additional_claims = {"user_id": account['id'], "username": account['name'], "email": account['email']}
-            access_token = create_access_token(email, additional_claims=additional_claims)
+            additional_claims = {
+                "user_id": account['id'], "username": account['name'], "email": account['email']}
+            access_token = create_access_token(
+                email, additional_claims=additional_claims)
             return jsonify(success=True, access_token=access_token, code=200)
     elif request.method == 'POST':
         return jsonify(success=False, msg='Complete os campos faltantes!', code=401)
     return jsonify(msg='Email ou senha incorreta!', success=False), 401
+
 
 @application.route("/logout_back", methods=["DELETE"])
 @jwt_required()
@@ -109,16 +93,75 @@ def logout():
     jwt_blocklist.append(jti)
     return jsonify(msg="Deslogado")
 
-@application.route('/time', methods=['POST'])
-def get_current_time():
-    print('get time')
-    return {'time': time.time()}
 
-@application.route("/protected", methods=["GET"])
+@application.route("/diary", methods=["POST"])
 @jwt_required()
-def protected():
+def post_new_diary():
+    data = request.get_json()
+    if data['title'] and data['content']:
+        title = data['title']
+        content = data['content']
+        claims = get_jwt()
+        user_id = claims["user_id"]
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('INSERT INTO `heyMe`.`diary`(`user_id`,`title`,`content`,`created_date`)VALUES(%s,%s,%s,%s);',
+                       (user_id, title, content, datetime.now()))
+        mysql.connection.commit()
+        msg = 'Criado com sucesso!'
+        return jsonify(success=True, msg=msg), 201
+    elif request.method == 'POST':
+        msg = 'Complete os campos faltantes!'
+        return jsonify(success=False, msg=msg), 400
+
+
+@application.route("/diary", methods=["GET"])
+@jwt_required()
+def get_diary():
     claims = get_jwt()
-    return jsonify(id=claims["user_id"], username=claims["username"], email=claims["email"])
+    user_id = claims["user_id"]
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute('SELECT * FROM heyMe.diary WHERE user_id = %s', (user_id,))
+    diaries = cursor.fetchall()
+    return jsonify(success=True, diaries=diaries), 200
+
+
+@application.route("/diary/<id>", methods=["PUT"])
+@jwt_required()
+def put_diary(id):
+    claims = get_jwt()
+    user_id = claims["user_id"]
+    data = request.get_json()
+    if data['title'] and data['content']:
+        title = data['title']
+        content = data['content']
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('UPDATE `heyMe`.`diary` SET `title` = %s, `content` = %s WHERE `id` = %s AND `user_id` = %s;',
+                       (title, content, id, user_id))
+        mysql.connection.commit()
+        if cursor.rowcount <= 0:
+            msg = 'Não encontrado ou não alterado!'
+            return jsonify(success=False, msg=msg), 404
+        msg = 'Alterado com sucesso!'
+        return jsonify(success=True, msg=msg), 200
+    elif request.method == 'PUT':
+        msg = 'Complete os campos faltantes!'
+        return jsonify(success=False, msg=msg), 400
+
+@application.route("/diary/<id>", methods=["DELETE"])
+@jwt_required()
+def delete_diary(id):
+    claims = get_jwt()
+    user_id = claims["user_id"]
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute('DELETE FROM `heyMe`.`diary` WHERE user_id = %s AND id = %s;',
+                   (user_id, id))
+    mysql.connection.commit()
+    if cursor.rowcount <= 0:
+        msg = 'Não encontrado!'
+        return jsonify(success=False, msg=msg), 404
+    msg = 'Deletado com sucesso!'
+    return jsonify(success=True, msg=msg), 200
+
 
 if __name__ == "__main__":
     application.run()
