@@ -68,7 +68,8 @@ export default function Header() {
     <header className="Header">
       {/* <nav className="Logo"> */}
           <table className="Logo">
-              <th>
+            <thead>
+              <tr>
                   <td>
                   <img src={require("../assets/psychology.png")} alt="logo"/>
                   </td>
@@ -77,7 +78,8 @@ export default function Header() {
                         <br style={{display: 'block', content: "", marginTop: 23}}
                     />&nbsp;HeyMe</h2>
                   </td>
-              </th>
+              </tr>
+              </thead>
           </table>
         {/* </nav> */}
       <CSSTransition

@@ -9,6 +9,7 @@ export default class NotesView {
         this.root.innerHTML = `
             <div class="notes__sidebar">
                 <button class="notes__add" type="button">Adicionar Anotação</button>
+                <button class="notes__delete" type="button">Remover Anotação</button>
                 <div class="notes__list"></div>
             </div>
             <div class="notes__preview">
@@ -20,9 +21,14 @@ export default class NotesView {
         const btnAddNote = this.root.querySelector(".notes__add");
         const inpTitle = this.root.querySelector(".notes__title");
         const inpBody = this.root.querySelector(".notes__body");
+        const btnDeleteNote = this.root.querySelector(".notes__delete");
 
         btnAddNote.addEventListener("click", () => {
-            this.onNoteAdd();
+            this.onNoteAdd({title: inpTitle.value.trim(), content: inpBody.value.trim()});
+        });
+
+        btnDeleteNote.addEventListener("click", () => {
+            this.onNoteDelete({id: localStorage.getItem("noteID")});
         });
 
         [inpTitle, inpBody].forEach(inputField => {
@@ -60,8 +66,10 @@ export default class NotesView {
         // Empty list
         notesListContainer.innerHTML = "";
 
+
+
         for (const note of notes) {
-            const html = this._createListItemHTML(note.id, note.title, note.body, new Date(note.updated));
+            const html = this._createListItemHTML(note.id, note.title, note.content, new Date(note.created_date));
 
             notesListContainer.insertAdjacentHTML("beforeend", html);
         }
@@ -70,6 +78,7 @@ export default class NotesView {
         notesListContainer.querySelectorAll(".notes__list-item").forEach(noteListItem => {
             noteListItem.addEventListener("click", () => {
                 this.onNoteSelect(noteListItem.dataset.noteId);
+                localStorage.setItem("noteID", noteListItem.dataset.noteId);
             });
 
             noteListItem.addEventListener("dblclick", () => {

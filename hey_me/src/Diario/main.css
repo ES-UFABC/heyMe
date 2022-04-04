@@ -34,6 +34,19 @@ body {
     width: 100%;
 }
 
+.notes__delete {
+    background: #860202;
+    border: none;
+    border-radius: 7px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 1.25em;
+    font-weight: bold;
+    margin-bottom: 1em;
+    padding: 0.75em 0;
+    width: 100%;
+}
+
 .notes__add:hover {
     background: #00af8c;
 }
