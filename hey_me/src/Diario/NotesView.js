@@ -1,3 +1,5 @@
+import Image from "../assets/trash-solid.svg";
+
 export default class NotesView {
     constructor(root, { onNoteSelect, onNoteAdd, onNoteEdit, onNoteDelete } = {}) {
         this.root = root;
@@ -56,6 +58,9 @@ export default class NotesView {
                 <div class="notes__small-updated">
                     ${updated.toLocaleString(undefined, { dateStyle: "full", timeStyle: "short" })}
                 </div>
+                <button class="notes__delete" type="button">
+                    <img class="trash_can" src=${Image} />
+                </button>
             </div>
         `;
     }
