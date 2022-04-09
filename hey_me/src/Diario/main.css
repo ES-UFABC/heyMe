@@ -35,7 +35,8 @@ body {
 }
 
 .notes__delete {
-    background: #860202;
+    /* background: #860202; */
+    background: none;
     border: none;
     border-radius: 7px;
     color: #ffffff;
@@ -43,8 +44,18 @@ body {
     font-size: 1.25em;
     font-weight: bold;
     margin-bottom: 1em;
-    padding: 0.75em 0;
-    width: 100%;
+    /* padding: 0.75em 0; */
+    width: 30px;
+    height: 30px;
+    position: left;
+    /* float: left; */
+    text-align: left;	
+}
+
+.trash_can {
+    position: relative;
+    padding: 5px 0px;
+    text-align: left;
 }
 
 .notes__save {
@@ -73,7 +84,7 @@ body {
 .notes__list-item--selected {
     background: #eeeeee;
     border-radius: 7px;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 .notes__small-title,

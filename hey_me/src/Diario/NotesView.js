@@ -1,3 +1,5 @@
+import Image from "../assets/trash-solid.svg";
+
 export default class NotesView {
     constructor(root, { onNoteSelect, onNoteAdd, onNoteEdit, onNoteDelete } = {}) {
         this.root = root;
