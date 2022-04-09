@@ -5,6 +5,7 @@ from datetime import datetime, timedelta
 import MySQLdb.cursors
 import regex
 import hashlib
+import chatbot
 
 application = Flask(__name__)
 
@@ -161,6 +162,13 @@ def delete_diary(id):
         return jsonify(success=False, msg=msg), 404
     msg = 'Deletado com sucesso!'
     return jsonify(success=True, msg=msg), 200
+
+@application.route("/chatbot/<message>", methods=['GET'])
+@jwt_required()
+def parse_message(message):
+    ints = chatbot.predict_class(message)
+    res = chatbot.get_response(ints)
+    return jsonify(response=res)
 
 
 if __name__ == "__main__":

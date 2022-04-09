@@ -5,6 +5,7 @@ import {BrowserRouter as Router, Link,
   import Register from './Register';
   import Welcome from './Welcome';
   import Diario from './Diario';
+  import Chat from './Chat';
 	
   function App() {
 	localStorage.setItem("api-endpoint","https://cors-everywhere.herokuapp.com/http://heymeapi-env-1.eba-5rahmizp.us-east-1.elasticbeanstalk.com");
@@ -17,6 +18,7 @@ import {BrowserRouter as Router, Link,
 			<Route path="/register" element={<Register />} />
 			<Route path="/welcome" element={<Welcome />} />
 			<Route path="/diario" element={<Diario />} />
+			<Route path="/chat" element={<Chat />} />
 		  </Routes>
 	   </Router>
 	  </div>
