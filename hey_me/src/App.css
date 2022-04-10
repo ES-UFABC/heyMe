@@ -25,7 +25,7 @@
 }
 
 .App-link {
-  color: #efcc00;
+  color: #27EF9F;;
 }
 
 @keyframes App-logo-spin {
@@ -45,14 +45,23 @@
   -moz-osx-font-smoothing: grayscale;
 }
 body {
-  background-image: url('../src/assets/background.jpg');
+  /* background-image: url('../src/assets/background.jpg'); */
+  background-color: #00619B;
   background-size: 100%;
   background-attachment: fixed;
   margin: 0;
 }
+
+.LogoLR {
+  width: 50px;
+  height: 20px;
+}
+
 .login, .register {
   width: 400px;
+  /* height: 40%; */
   background-color: #ffffff;
+  border-radius: 10%;
   box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
   margin: 100px auto;
 }
@@ -78,8 +87,8 @@ body {
   color: #9da3ac;
 }
 .login .links a.active, .register .links a.active {
-  border-bottom: 3px solid #efcc00;
-  color: #efcc00;
+  border-bottom: 3px solid #27EF9F;
+  color: #27EF9F;
 }
 .login form, .register form {
   display: flex;
@@ -93,7 +102,7 @@ body {
   align-items: center;
   width: 50px;
   height: 50px;
-  background-color: #efcc00;
+  background-color: #27EF9F;
   color: #ffffff;
 }
 .login form input[type="password"], .login form input[type="text"], .login form input[type="email"], .register form input[type="password"], .register form input[type="text"], .register form input[type="email"] {
@@ -107,7 +116,7 @@ body {
   width: 100%;
   padding: 15px;
   margin-top: 20px;
-  background-color: #efcc00;
+  background-color: #27EF9F;
   border: 0;
   cursor: pointer;
   font-weight: bold;
@@ -115,18 +124,23 @@ body {
   transition: background-color 0.2s;
 }
 .login form button[type="button"], .register form button[type="button"] {
-  width: 100%;
-  padding: 15px;
-  margin-top: 20px;
-  background-color: #efcc00;
+  width: 80%;
+  /* height: 100px; */
+  padding: 10px;
+  /* margin-top: 20px; */
+  margin-bottom: 10px;
+  background-color: #27EF9F;
   border: 0;
   cursor: pointer;
   font-weight: bold;
   color: #ffffff;
   transition: background-color 0.2s;
+  border-radius: 10px;
+  /* border-bottom-left-radius: 20%;
+  border-bottom-right-radius: 20%; */
 }
 .login form input[type="submit"]:hover, .register form input[type="submit"]:hover {
-  background-color: #fcd601;
+  background-color: #27EF9F;
   transition: background-color 0.2s;
 }
 .navtop {

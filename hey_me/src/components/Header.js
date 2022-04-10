@@ -35,7 +35,7 @@ export default function Header() {
     const config = {
         headers: { 
           Authorization: `Bearer ${localStorage.getItem('token')}`,
-          "Origin": "https://main.d1w1cxbdfenujy.amplifyapp.com/"
+          "Origin": "http://localhost:3000"
         }
     };
     localStorage.removeItem('token');

@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, render_template, request, redirect, url_for, session
 from flask_jwt_extended import JWTManager, jwt_required, create_access_token, get_jwt
 from flask_mysqldb import MySQL
+from flask_cors import CORS
 from datetime import datetime, timedelta
 import MySQLdb.cursors
 import regex
@@ -21,18 +22,20 @@ application.config['MYSQL_HOST'] = 'db-heyme.ckdrbbsyt0ye.us-east-1.rds.amazonaw
 application.config['MYSQL_DB'] = 'heyMe'
 application.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
+CORS(application)
 
-jwt = JWTManager(application)
+
+# jwt = JWTManager(application)
 
 mysql = MySQL(application)
 
-jwt_blocklist = []
+# jwt_blocklist = []
 
 
-@jwt.token_in_blocklist_loader
-def check_if_token_is_revoked(jwt_header, jwt_payload):
-    jti = jwt_payload["jti"]
-    return jti in jwt_blocklist
+# @jwt.token_in_blocklist_loader
+# def check_if_token_is_revoked(jwt_header, jwt_payload):
+#     jti = jwt_payload["jti"]
+#     return jti in jwt_blocklist
 
 
 @application.route('/register_back', methods=['POST'])
@@ -68,6 +71,7 @@ def register():
 
 @application.route('/login_back', methods=['POST'])
 def login():
+    print("called!")
     data = request.get_json()
     if data['email'] and data['password']:
         email = data['email']
@@ -79,31 +83,33 @@ def login():
         if account:
             additional_claims = {
                 "user_id": account['id'], "username": account['name'], "email": account['email']}
-            access_token = create_access_token(
-                email, additional_claims=additional_claims)
-            return jsonify(success=True, access_token=access_token, code=200)
+            # access_token = create_access_token(
+            #     email, additional_claims=additional_claims)
+            response = jsonify(success=True, access_token='access', code=200)
+            response.headers.add("Access-Control-Allow-Origin", "*")
+            return response
     elif request.method == 'POST':
         return jsonify(success=False, msg='Complete os campos faltantes!', code=401)
     return jsonify(msg='Email ou senha incorreta!', success=False), 401
 
 
 @application.route("/logout_back", methods=["DELETE"])
-@jwt_required()
+# @jwt_required()
 def logout():
-    jti = get_jwt()["jti"]
-    jwt_blocklist.append(jti)
+    # jti = get_jwt()["jti"]
+    # jwt_blocklist.append(jti)
     return jsonify(msg="Deslogado")
 
 
 @application.route("/diary", methods=["POST"])
-@jwt_required()
+# @jwt_required()
 def post_new_diary():
     data = request.get_json()
     if data['title'] and data['content']:
         title = data['title']
         content = data['content']
-        claims = get_jwt()
-        user_id = claims["user_id"]
+        # claims = get_jwt()
+        # user_id = claims["user_id"]
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('INSERT INTO `heyMe`.`diary`(`user_id`,`title`,`content`,`created_date`)VALUES(%s,%s,%s,%s);',
                        (user_id, title, content, datetime.now()))
@@ -116,10 +122,10 @@ def post_new_diary():
 
 
 @application.route("/diary", methods=["GET"])
-@jwt_required()
+# @jwt_required()
 def get_diary():
-    claims = get_jwt()
-    user_id = claims["user_id"]
+    # claims = get_jwt()
+    # user_id = claims["user_id"]
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute('SELECT * FROM heyMe.diary WHERE user_id = %s', (user_id,))
     diaries = cursor.fetchall()
@@ -127,9 +133,9 @@ def get_diary():
 
 
 @application.route("/diary/<id>", methods=["PUT"])
-@jwt_required()
+# @jwt_required()
 def put_diary(id):
-    claims = get_jwt()
+    # claims = get_jwt()
     user_id = claims["user_id"]
     data = request.get_json()
     if data['title'] and data['content']:
@@ -149,10 +155,10 @@ def put_diary(id):
         return jsonify(success=False, msg=msg), 400
 
 @application.route("/diary/<id>", methods=["DELETE"])
-@jwt_required()
+# @jwt_required()
 def delete_diary(id):
-    claims = get_jwt()
-    user_id = claims["user_id"]
+    # claims = get_jwt()
+    # user_id = claims["user_id"]
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute('DELETE FROM `heyMe`.`diary` WHERE user_id = %s AND id = %s;',
                    (user_id, id))
@@ -164,7 +170,7 @@ def delete_diary(id):
     return jsonify(success=True, msg=msg), 200
 
 @application.route("/chatbot/<message>", methods=['GET'])
-@jwt_required()
+# @jwt_required()
 def parse_message(message):
     ints = chatbot.predict_class(message)
     res = chatbot.get_response(ints)
@@ -172,4 +178,5 @@ def parse_message(message):
 
 
 if __name__ == "__main__":
-    application.run()
+    print("running")
+    application.run(host='localhost', debug=True)

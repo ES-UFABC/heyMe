@@ -14,8 +14,8 @@ class MessageParser {
         let config = {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`,
-                  "Origin": "https://main.d1w1cxbdfenujy.amplifyapp.com/"
-                // "Origin": "localhost:3000"
+                  // "Origin": "https://main.d1w1cxbdfenujy.amplifyapp.com/"
+                "Origin": "localhost:5000"
             }
         };
         let response = await axios.get(`${localStorage.getItem("api-endpoint")}/chatbot/${message}`, config);

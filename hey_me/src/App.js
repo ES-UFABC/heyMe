@@ -8,7 +8,7 @@ import {BrowserRouter as Router, Link,
   import Chat from './Chat';
 	
   function App() {
-	localStorage.setItem("api-endpoint","https://cors-everywhere.herokuapp.com/http://heymeapi-env-1.eba-5rahmizp.us-east-1.elasticbeanstalk.com");
+	localStorage.setItem("api-endpoint","http://localhost:5000");
 	return (
 	  <div className="App">
 		<Router>

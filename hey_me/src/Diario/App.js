@@ -47,7 +47,7 @@ export default class App {
                     let config = {
                         headers: { 
                           Authorization: `Bearer ${localStorage.getItem('token')}`,
-                          "Origin": "https://main.d1w1cxbdfenujy.amplifyapp.com/"
+                          "Origin": "http://localhost:5000"
                         }
                     };
                     await axios.post(`${localStorage.getItem("api-endpoint")}/diary`, sendData, config);

@@ -61,10 +61,10 @@ def get_response(intents_list):
 
 print("The chatbot is working")
 
-while True:
-    message = input("")
-    ints = predict_class(message)
-    res = get_response(ints)
-    print(res)
+# while True:
+#     message = input("")
+#     ints = predict_class(message)
+#     res = get_response(ints)
+#     print(res)
 
 

@@ -11,7 +11,8 @@ function Login() {
 		};
 		let config = {
 			header:{
-				"Origin": "https://main.d1w1cxbdfenujy.amplifyapp.com/"
+				"Origin": "http://localhost:3000/",
+				"Access-Control-Allow-Origin": '*'
 			}
 		};
 		axios.post(`${localStorage.getItem("api-endpoint")}/login_back`, sendData, config)
@@ -37,7 +38,10 @@ function Login() {
 		<div className="Login">
 			<header className="Login-header">
 				<div className="login">
-					<h1>Logar</h1>
+				<div className="LogoLR">
+					<img src={require("../assets/psychology.png")}/>
+					<h3>HeyMe</h3>
+				</div>
 					<div className="links">
 						<a href="/login" className="active">Logar</a>
 						<a href="/register">Registrar-se</a>
