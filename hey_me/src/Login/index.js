@@ -38,10 +38,27 @@ function Login() {
 		<div className="Login">
 			<header className="Login-header">
 				<div className="login">
-				<div className="LogoLR">
+				{/* <div className="LogoLR">
 					<img src={require("../assets/psychology.png")}/>
 					<h3>HeyMe</h3>
-				</div>
+				</div> */}
+					<table className="Logo2">
+						<tbody>
+						<tr>
+							<td>
+							<img src={require("../assets/psychology.png")} alt="logo_login"/>
+							</td>
+						</tr>
+						<tr>
+							<td style={{verticalAlign: 'top', borderTop: '400px', marginTop: 20}}>
+								<h2 className='titulo'>
+									<br style={{display: 'block', content: "", marginTop: 23}}
+								/>&nbsp;HeyMe</h2>
+							</td>
+							</tr>
+						</tbody>
+					</table>
+					<h1></h1>
 					<div className="links">
 						<a href="/login" className="active">Logar</a>
 						<a href="/register">Registrar-se</a>

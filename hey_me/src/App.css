@@ -53,8 +53,8 @@ body {
 }
 
 .LogoLR {
-  width: 50px;
-  height: 20px;
+  width: 10px;
+  height: 10px;
 }
 
 .login, .register {
@@ -210,4 +210,31 @@ padding-right: 15px;
 .content > div p {
 padding: 5px;
 margin: 0 0 10px 0;
+}
+
+.Logo2 {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: -50px;
+  padding-top: 20px;
+  /* display: grid; */
+  /* grid-area: logo; */
+  /* grid-template-columns: repeat(2, auto); */
+  /* align-items: center;
+  justify-items: center; */
+  height: 70px;
+}
+.Logo2 img {
+  height: 60px;
+}
+.Logo2 h2 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  /* margin-left: -60%; */
+  margin-top:-25px;
+  transition: 0.5s;
+  text-decoration: none;
+  color: #27EF9F;
+  position: relative
 }
