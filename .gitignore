@@ -2,3 +2,6 @@ hey_me/api/venv
 node_modules
 package-lock.json
 hey_me/api/venv
+*.pkl
+*.h5
+hey_me/api/__pycache__
