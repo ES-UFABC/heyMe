@@ -3,7 +3,7 @@ import json
 import pickle
 import numpy as np
 
-import nltk
+import nltk, os
 from nltk.stem import WordNetLemmatizer
 nltk.download('punkt')
 nltk.download('wordnet')
@@ -17,7 +17,9 @@ lemmatizer = WordNetLemmatizer()
 
 # intents = json.loads(open('intents.json').read())
 
-with open("intents.json", encoding='utf-8') as arq_json:
+path = os.path.dirname(__file__)
+
+with open(f"{path}/intents.json", encoding='utf-8') as arq_json:
     intents = json.load(arq_json)
 
 # print(intents)
@@ -41,8 +43,8 @@ words = sorted(set(words))
 
 classes = sorted(set(classes))
 
-pickle.dump(words, open('words.pkl', 'wb'))
-pickle.dump(classes, open('classes.pkl', 'wb'))
+pickle.dump(words, open(f"{path}/words.pkl", 'wb'))
+pickle.dump(classes, open(f"{path}/classes.pkl", 'wb'))
 
 # print(words)
 
@@ -82,7 +84,7 @@ model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy
 
 hist = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=1)
 
-model.save('chatbot_model.h5', hist)
+model.save(f"{path}/chatbot_model.h5", hist)
 
 print("It's working")
 

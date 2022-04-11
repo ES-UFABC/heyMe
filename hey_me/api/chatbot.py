@@ -3,7 +3,7 @@ import json
 import pickle
 import numpy as np
 
-import nltk
+import nltk, os
 from nltk.stem import WordNetLemmatizer
 
 from tensorflow.keras.models import load_model
@@ -11,12 +11,14 @@ from tensorflow.keras.models import load_model
 lemmatizer = WordNetLemmatizer()
 # intents = json.loads(open('intents.json').read())
 
-with open("intents.json", encoding='utf-8') as arq_json:
+path = os.path.dirname(__file__)
+
+with open(f"{path}/intents.json", encoding='utf-8') as arq_json:
     intents = json.load(arq_json)
 
-words = pickle.load(open('words.pkl', 'rb'))
-classes = pickle.load(open('classes.pkl', 'rb'))
-model = load_model('chatbot_model.h5')
+words = pickle.load(open(f'{path}/words.pkl', 'rb'))
+classes = pickle.load(open(f'{path}/classes.pkl', 'rb'))
+model = load_model(f'{path}/chatbot_model.h5')
 
 # This is for cleaning up the sentence
 
