@@ -1,0 +1,34 @@
+{"intents": [
+    {"tag": "greetings",
+        "patterns": ["olá", "bom dia", "oi", "boa tarde", "boa noite", "como está?"],
+        "responses": ["Olá!", "Oi!", "Como está se sentindo hoje?", "Em que posso te ajudar?"]
+    },
+    {"tag": "goodbye",
+        "patterns": ["tchau", "adeus", "vou sair", "preciso ir", "até mais"],
+        "responses": ["Obrigado!", "Tchau, fique bem!", "Falo com você outro dia!"]
+    },
+    {"tag": "bad feelings",
+        "patterns": ["Estou me sentindo mal", "angústia", "tristeza", "pensamentos negativos", "errado", "ninguém me entende", "apreensivo", "ansioso", "ansiedade"],
+        "responses": ["Você gostaria de falar com um psicólogo?", "Qual é a causa desses sentimentos negativos?", "Aconteceu algo ruim?", "Sinto muito. Recomendo que você converse com um psicólogo"]
+        },
+    {"tag": "happy feelings",
+        "patterns": ["feliz", "felicidade", "alegria", "bem estar", "positivo", "positiva"],
+        "responses": ["Fico feliz por você!", "Ainda bem que está tudo bem!", "Me conte mais sobre o seu dia!"]
+        },
+    {"tag": "name",
+        "patterns": ["qual é o seu nome?", "quem é você?", "com quem estou falando?"],
+        "responses": ["Sou o chatbot do HeyMe!", "Sou um chatbot, estou aqui para ajudar você"]
+        },
+    {"tag": "anxious_felling",
+        "patterns": ["me sinto ansioso", "ansiedade", "preocupado", "preocupação", "algo ruim vai acontecer"],
+        "responses": ["Tente ficar calmo(a)", "Respire profundamente. Vai ficar tudo bem", "Você gostaria de falar com um psicólogo?"]
+        },
+    {"tag": "redirecting_psychologist",
+        "patterns": ["gostaria de conversar com um psicólogo", "quero conversar", "quero ajuda", "preciso de alguem", "algum profissional"],
+        "responses": ["Certo, vou te rediredicionar para um psicólogo", "Seria ótimo. Vou te encaminhar para um psicólogo"]
+        },
+    {"tag": "user_thanks",
+        "patterns": ["obrigado pela conversa", "obrigado pela ajuda"],
+        "responses": ["Eu que agradeço! Espero que esteja melhor!", "Fique bem!"]
+        }
+]}

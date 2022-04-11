@@ -10,7 +10,7 @@ body {
 }
 
 .notes * {
-    font-family: sans-serif;
+    font-family: sans-serif, FontAwesome;
 }
 
 .notes__sidebar {
@@ -18,7 +18,7 @@ body {
     flex-shrink: 0;
     overflow-y: auto;
     padding: 1em;
-    width: 300px;
+    width: 30%;
 }
 
 .notes__add {
@@ -31,8 +31,72 @@ body {
     font-weight: bold;
     margin-bottom: 1em;
     padding: 0.75em 0;
-    width: 100%;
+    width: 30%;
 }
+
+.notes__save {
+    margin-left: 30px;
+    background: #003e95;
+    border: none;
+    border-radius: 7px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 1.25em;
+    font-weight: bold;
+    margin-bottom: 1em;
+    padding: 0.75em 0;
+    width: 30%;
+    /* background: #009578;
+    border: crimson;
+    color: #000000;
+    border-radius: 4px;
+    /* color: #7c2222; 
+    cursor: pointer;
+    font-size: 1.55em;
+    font-weight: bold;
+    /* text-anchor: middle; */
+    /* text-align: center; */
+    /* margin-bottom: 10px;
+    margin-bottom: 1em;
+    padding: 0.75em 0;
+    width: 140px;
+    height: 70px; */
+    /* size: 20%; */
+}
+
+.notes__delete {
+    /* background: #860202; */
+    background: none;
+    border: none;
+    border-radius: 7px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 1.25em;
+    font-weight: bold;
+    margin-bottom: 1em;
+    /* padding: 0.75em 0; */
+    width: 30px;
+    height: 30px;
+    position: left;
+    /* float: left; */
+    text-align: left;	
+}
+
+.trash_can {
+    position: relative;
+    padding: 5px 0px;
+    text-align: left;
+}
+
+/* .notes__save__text {
+    cursor: pointer;
+    font-size: 1.45em;
+    color: #000000;
+    font-weight: bold;
+    position: absolute;
+    margin-left: 150px;
+    margin-top: -40px;
+} */
 
 .notes__add:hover {
     background: #00af8c;
@@ -40,12 +104,13 @@ body {
 
 .notes__list-item {
     cursor: pointer;
+    background-color: #aaaaaa;
 }
 
 .notes__list-item--selected {
     background: #eeeeee;
     border-radius: 7px;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 .notes__small-title,
@@ -62,7 +127,7 @@ body {
 }
 
 .notes__small-updated {
-    color: #aaaaaa;
+    color: #4c4c4c;
     font-style: italic;
     text-align: right;
 }
@@ -84,6 +149,7 @@ body {
 .notes__title {
     font-size: 3em;
     font-weight: bold;
+    background-color: #eeeeeee6;
 }
 
 .notes__body {
@@ -92,4 +158,10 @@ body {
     line-height: 1.5;
     margin-top: 2em;
     resize: none;
+}
+
+.delete__note {
+    position: inherit;
+    text-align: right;
+    padding-right: 5%;
 }

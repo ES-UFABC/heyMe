@@ -1,10 +1,12 @@
 from flask import Flask, jsonify, render_template, request, redirect, url_for, session
 from flask_jwt_extended import JWTManager, jwt_required, create_access_token, get_jwt
 from flask_mysqldb import MySQL
+from flask_cors import CORS
 from datetime import datetime, timedelta
 import MySQLdb.cursors
 import regex
 import hashlib
+import chatbot
 
 application = Flask(__name__)
 
@@ -19,6 +21,8 @@ application.config['MYSQL_PASSWORD'] = 'bDVTFqCMZbaju5jH'
 application.config['MYSQL_HOST'] = 'db-heyme.ckdrbbsyt0ye.us-east-1.rds.amazonaws.com'
 application.config['MYSQL_DB'] = 'heyMe'
 application.config['MYSQL_CURSORCLASS'] = 'DictCursor'
+
+CORS(application)
 
 
 jwt = JWTManager(application)
@@ -67,6 +71,7 @@ def register():
 
 @application.route('/login_back', methods=['POST'])
 def login():
+    print("called!")
     data = request.get_json()
     if data['email'] and data['password']:
         email = data['email']
@@ -80,7 +85,8 @@ def login():
                 "user_id": account['id'], "username": account['name'], "email": account['email']}
             access_token = create_access_token(
                 email, additional_claims=additional_claims)
-            return jsonify(success=True, access_token=access_token, code=200)
+            response = jsonify(success=True, access_token=access_token, code=200)
+            return response
     elif request.method == 'POST':
         return jsonify(success=False, msg='Complete os campos faltantes!', code=401)
     return jsonify(msg='Email ou senha incorreta!', success=False), 401
@@ -162,6 +168,14 @@ def delete_diary(id):
     msg = 'Deletado com sucesso!'
     return jsonify(success=True, msg=msg), 200
 
+@application.route("/chatbot/<message>", methods=['GET'])
+@jwt_required()
+def parse_message(message):
+    ints = chatbot.predict_class(message)
+    res = chatbot.get_response(ints)
+    return jsonify(response=res)
+
 
 if __name__ == "__main__":
-    application.run()
+    print("running")
+    application.run(host='localhost', debug=True)

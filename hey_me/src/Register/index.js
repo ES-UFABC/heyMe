@@ -36,7 +36,23 @@ function Register() {
 	}
 	return (
 		<div className="register">
-			<h1>Registrar-se</h1>
+			<table className="Logo2">
+				<tbody>
+				<tr>
+					<td>
+					<img src={require("../assets/psychology.png")} alt="logo_login"/>
+					</td>
+				</tr>
+				<tr>
+					<td style={{verticalAlign: 'top', borderTop: '400px', marginTop: 20}}>
+						<h2 className='titulo'>
+							<br style={{display: 'block', content: "", marginTop: 23}}
+						/>&nbsp;HeyMe</h2>
+					</td>
+					</tr>
+				</tbody>
+			</table>
+			<h1></h1>
 			<div className="links">
 				<a href="/login">Logar</a>
 				<a href="/register" className="active">Registrar</a>

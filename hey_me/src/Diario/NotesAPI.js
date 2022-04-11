@@ -1,10 +1,25 @@
-export default class NotesAPI {
-    static getAllNotes() {
-        const notes = JSON.parse(localStorage.getItem("notesapp-notes") || "[]");
+import axios from 'axios';
+import React, { useState, useEffect } from "react";
 
-        return notes.sort((a, b) => {
-            return new Date(a.updated) > new Date(b.updated) ? -1 : 1;
+export default class NotesAPI {
+    static async getAllNotes() {
+        let config = {
+            headers: { 
+              Authorization: `Bearer ${localStorage.getItem('token')}`,
+            //   "Origin": "https://main.d1w1cxbdfenujy.amplifyapp.com/"
+            "Origin": "https://main.d1w1cxbdfenujy.amplifyapp.com/"
+            }
+        };
+        const response = await axios.get(`${localStorage.getItem("api-endpoint")}/diary`, config);
+        
+        let res = response.data;
+        console.log('res', res);
+
+        const notes = res['diaries'];
+        const sorted_notes = notes.sort((a, b) => {
+            return new Date(a.created_date) > new Date(b.created_date) ? -1 : 1;
         });
+        return sorted_notes;
     }
 
     static saveNote(noteToSave) {
@@ -26,9 +41,20 @@ export default class NotesAPI {
     }
 
     static deleteNote(id) {
-        const notes = NotesAPI.getAllNotes();
-        const newNotes = notes.filter(note => note.id != id);
-
-        localStorage.setItem("notesapp-notes", JSON.stringify(newNotes));
+        this.state = {open: false};
+        var self = this;
+        async function removeNote() {
+            let config = {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`,
+                      "Origin": "https://main.d1w1cxbdfenujy.amplifyapp.com/"
+                    // "Origin": "localhost:3000"
+                }
+            };
+            id = parseInt(id);
+            await axios.delete(`${localStorage.getItem("api-endpoint")}/diary/${id}`, config);
+            self.setState({open: true});
+        }
+        removeNote();
     }
 }

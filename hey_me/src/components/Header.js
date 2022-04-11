@@ -3,8 +3,6 @@ import React, { useState, useEffect } from "react";
 import "./Header.css";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Diario from "../Diario";
-
 import { CSSTransition } from "react-transition-group";
 
 export default function Header() {
@@ -40,6 +38,7 @@ export default function Header() {
           "Origin": "https://main.d1w1cxbdfenujy.amplifyapp.com/"
         }
     };
+    localStorage.removeItem('token');
 
     var res;
     console.log('token on logout', localStorage.getItem('token'));
@@ -48,7 +47,6 @@ export default function Header() {
             .then(function(response){
 				res = response.data;
         console.log(res);
-        localStorage.removeItem('token');
         navigate('/login');
        //Perform action based on response
         })
@@ -58,9 +56,9 @@ export default function Header() {
         });
   }
 
-  function handleClickDiary() {
-    navigate('/diario');
-  }
+  // function handleClickDiary() {
+  //   navigate('/diario');
+  // }
 
   const navigate = useNavigate();
 
@@ -68,7 +66,8 @@ export default function Header() {
     <header className="Header">
       {/* <nav className="Logo"> */}
           <table className="Logo">
-              <th>
+            <thead>
+              <tr>
                   <td>
                   <img src={require("../assets/psychology.png")} alt="logo"/>
                   </td>
@@ -77,7 +76,8 @@ export default function Header() {
                         <br style={{display: 'block', content: "", marginTop: 23}}
                     />&nbsp;HeyMe</h2>
                   </td>
-              </th>
+              </tr>
+              </thead>
           </table>
         {/* </nav> */}
       <CSSTransition
@@ -89,7 +89,7 @@ export default function Header() {
         <nav className="Nav">
           <a href="/welcome">Home</a>
           <a href="/diario">Diario</a>
-          <a href="/">Chat</a>
+          <a href="/chat">Chat</a>
           <button onClick={handleClick}>Logout</button>
         </nav>
       </CSSTransition>
