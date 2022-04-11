@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 import MySQLdb.cursors
 import regex
 import hashlib
-import chatbot
+import training, chatbot
 
 application = Flask(__name__)
 
