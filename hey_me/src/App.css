@@ -46,7 +46,9 @@
 }
 body {
   /* background-image: url('../src/assets/background.jpg'); */
-  background-color: #00619B;
+  /* background-color: #00619B; */
+  /* background-color: #065737; */
+  background: linear-gradient(#02321d, #033243);
   background-size: 100%;
   background-attachment: fixed;
   margin: 0;
