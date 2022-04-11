@@ -13,7 +13,7 @@ function Register() {
 		};
 		let config = {
 			header:{
-				"Origin": "http://localhost:3000"
+				"Origin": "https://main.d1w1cxbdfenujy.amplifyapp.com/"
 			}
 		};
 		const article = { title: 'React POST Request Example' };

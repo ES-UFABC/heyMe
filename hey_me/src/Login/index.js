@@ -11,8 +11,7 @@ function Login() {
 		};
 		let config = {
 			header:{
-				"Origin": "http://localhost:3000/",
-				"Access-Control-Allow-Origin": '*'
+				"Origin": "https://main.d1w1cxbdfenujy.amplifyapp.com/"
 			}
 		};
 		axios.post(`${localStorage.getItem("api-endpoint")}/login_back`, sendData, config)

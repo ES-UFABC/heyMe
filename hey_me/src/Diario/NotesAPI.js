@@ -7,7 +7,7 @@ export default class NotesAPI {
             headers: { 
               Authorization: `Bearer ${localStorage.getItem('token')}`,
             //   "Origin": "https://main.d1w1cxbdfenujy.amplifyapp.com/"
-            "Origin": "localhost:3000"
+            "Origin": "https://main.d1w1cxbdfenujy.amplifyapp.com/"
             }
         };
         const response = await axios.get(`${localStorage.getItem("api-endpoint")}/diary`, config);
@@ -47,8 +47,8 @@ export default class NotesAPI {
             let config = {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`,
-                    //   "Origin": "https://main.d1w1cxbdfenujy.amplifyapp.com/"
-                    "Origin": "localhost:3000"
+                      "Origin": "https://main.d1w1cxbdfenujy.amplifyapp.com/"
+                    // "Origin": "localhost:3000"
                 }
             };
             id = parseInt(id);

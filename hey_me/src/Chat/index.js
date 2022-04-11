@@ -10,21 +10,29 @@ import config from './config';
 
 
 function Chat() {
-	// var validate = 2;
-	// const navigate = useNavigate();
+	var validate = 2;
+	const navigate = useNavigate();
 
-	// const callLogin = useEffect(() => {
-	// 	if (validate == 0) {
-	// 		navigate('/login');
-	// 	}
-	// }, []);
+	const callNavigate = useEffect(() => {
+		if (validate != 0) {
+			// callApi();
+		}
+	}, []);
+
+	const callLogin = useEffect(() => {
+		if (validate == 0) {
+			navigate('/login');
+		}
+	}, []);
 	
-	// validate = 1;
-	// if (!localStorage.getItem('token')) {
-	// 	validate = 0;
-	// }
-	return (
-		<div className="App">
+	validate = 1;
+	if (!localStorage.getItem('token')) {
+		validate = 0;
+	}
+	console.log('validate',validate);
+	if (validate == 1) {
+		return (
+			<div className="App">
 			<div>
 				<Header />
 			</div>
@@ -32,7 +40,18 @@ function Chat() {
 				<Chatbot config={config} actionProvider={ActionProvider} messageParser={MessageParser} />
 			</header>
 		</div>
-		)
+		);
+	}
+	else if (validate == 0) {
+		return (
+			<div>
+				{callLogin}
+			</div>
+		);
+	}
+	else {
+		return null;
+	}
 }
 
 export default Chat;

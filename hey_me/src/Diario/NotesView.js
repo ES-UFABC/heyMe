@@ -10,13 +10,37 @@ export default class NotesView {
         var dataAtual = new Date().toLocaleString(undefined, { dateStyle: "full", timeStyle: "short" });
         this.root.innerHTML = `
             <div class="notes__sidebar">
-                <button class="notes__add" type="button">Adicionar Anotação</button>
+                <button class="notes__add" type="button">
+                <table>
+                    <thead>
+                        <tr>
+                        <td>
+                        &nbsp;&nbsp;<i class="fa-solid fa-plus fa-2x"></i>
+                        </td>
+                        <td>
+                            &nbsp;&nbsp;Nova
+                        </td>
+                        </tr>
+                    </thead>
+                </table>
+                </button>
+                <button class="notes__save" type="button">
+                <table>
+                    <thead>
+                        <tr>
+                        <td>
+                            &nbsp;&nbsp;<i class="fa-solid fa-floppy-disk fa-2x"></i>
+                        </td>
+                        <td>
+                            &nbsp;&nbsp;Salvar
+                        </td>
+                        </tr>
+                    </thead>
+                </table>
+                </button>
                 <div class="notes__list"></div>
             </div>
             <div class="notes__preview">
-                <button class="notes__save" type="button">
-                    <i class="fa-solid fa-floppy-disk fa-2x"></i>
-                </button>
                 <input class="notes__title" type="text" value="${dataAtual}"></input>
                 <textarea class="notes__body">Querido diário...</textarea>
             </div>
@@ -34,8 +58,6 @@ export default class NotesView {
 
 
         btnAddNote.addEventListener("click", () => {
-            console.log("ADD");
-            // this.state = {open: false};
             inpTitle.value = dataAtual;
             inpBody.value = "Querido diario...";
         //     this.root.innerHTML = `
@@ -93,6 +115,7 @@ export default class NotesView {
                     </button>
                 </div>
             </div>
+            <br/>
         `;
     }
 
