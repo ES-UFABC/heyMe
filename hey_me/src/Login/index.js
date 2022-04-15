@@ -11,7 +11,7 @@ function Login() {
 		};
 		let config = {
 			header:{
-				"Origin": "https://main.d1w1cxbdfenujy.amplifyapp.com/"
+				"Origin": localStorage.getItem("api-origin")
 			}
 		};
 		axios.post(`${localStorage.getItem("api-endpoint")}/login_back`, sendData, config)

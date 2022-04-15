@@ -82,7 +82,6 @@
   font-weight: medium;
   position: relative;
   width: 184.5px;
-  margin-left: auto;
   text-align: left;
 }
 
@@ -134,13 +133,24 @@
   }
 }
 
+.FixPosition {
+  position: sticky;
+  width: 100%; /* largura da tela */
+  height: 30%;
+  margin-top: 10%;
+  margin-bottom: 20%;
+  z-index: 100;
+}
+
 .react-chatbot-kit-chat-container {
   position: relative;
-  width: 575px; /* largura da tela */
+  display: block;
+  /* margin-top: 15%; */
+  width: 40%; /* largura da tela */
 }
 
 .react-chatbot-kit-chat-inner-container {
-  height: 500px; /* altura da tela */
+  height: 50%; /* altura da tela */
   background-color: #fff;
   border-radius: 3px;
   border-radius: 5px;

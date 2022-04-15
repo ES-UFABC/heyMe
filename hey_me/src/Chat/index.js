@@ -36,9 +36,11 @@ function Chat() {
 			<div>
 				<Header />
 			</div>
-			<header className="App-header">
-				<Chatbot config={config} actionProvider={ActionProvider} messageParser={MessageParser} />
-			</header>
+			<div className="FixPosition">
+				<header className="App-header">
+					<Chatbot config={config} actionProvider={ActionProvider} messageParser={MessageParser} />
+				</header>
+			</div>
 		</div>
 		);
 	}
