@@ -15,17 +15,20 @@ class MessageParser {
         let config = {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`,
-                  // "Origin": localStorage.getItem('api-origin')
-                // "Origin": "localhost:5000"
+                  "Origin": localStorage.getItem('api-origin')
             }
         };
+        if (message.startsWith('?')) {
+          message = ` ${message}`;
+        }
+        console.log("mensagem enviada", message);
         let response = await axios.get(`${localStorage.getItem("api-endpoint")}/chatbot/${message}`, config);
         let res = await response.data;
         console.log(res);
         self.actionProvider.respondUser(res['response']);
     }
     sendMessage(self);
-    console.log("message sent");
+    // console.log("message sent");
     }
   }
   

@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 import MySQLdb.cursors
 import regex
 import hashlib
-import training, chatbot
+import chatbot
 
 application = Flask(__name__)
 
@@ -23,7 +23,6 @@ application.config['MYSQL_DB'] = 'heyMe'
 application.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
 CORS(application)
-
 
 jwt = JWTManager(application)
 
@@ -42,11 +41,11 @@ def check_if_token_is_revoked(jwt_header, jwt_payload):
 def register():
     data = request.get_json()
     msg = ''
+    response = None
     if data['username'] and data['password'] and data['email']:
         name = data['username']
         password = data['password']
         email = data['email']
-        print('email', email, 'password', password, 'name', name)
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('SELECT * FROM heyMe.user WHERE email = %s', (email,))
         account = cursor.fetchone()
@@ -63,16 +62,18 @@ def register():
                 email, hashlib.sha256(password.encode()).hexdigest(), name, datetime.now()))
             mysql.connection.commit()
             msg = 'Registrado com sucesso!'
-            return {'success': True, 'msg': msg}
+            response = jsonify(success=True, msg=msg)
     elif request.method == 'POST':
         msg = 'Complete os campos faltantes!'
-        return {'success': False, 'msg': msg}
+        response = jsonify(success=False, msg=msg)
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    return response
 
 
 @application.route('/login_back', methods=['POST'])
 def login():
-    print("called!")
     data = request.get_json()
+    response = None
     if data['email'] and data['password']:
         email = data['email']
         password = data['password']
@@ -86,24 +87,27 @@ def login():
             access_token = create_access_token(
                 email, additional_claims=additional_claims)
             response = jsonify(success=True, access_token=access_token, code=200)
-            return response
+        else:
+            response = jsonify(msg='Email ou senha incorreta!', success=False, code=401)
     elif request.method == 'POST':
-        return jsonify(success=False, msg='Complete os campos faltantes!', code=401)
-    return jsonify(msg='Email ou senha incorreta!', success=False), 401
-
+        response = jsonify(success=False, msg='Complete os campos faltantes!', code=401)
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    return response
 
 @application.route("/logout_back", methods=["DELETE"])
 @jwt_required()
 def logout():
     jti = get_jwt()["jti"]
     jwt_blocklist.append(jti)
-    return jsonify(msg="Deslogado")
-
+    response = jsonify(msg="Deslogado")
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    return response
 
 @application.route("/diary", methods=["POST"])
 @jwt_required()
 def post_new_diary():
     data = request.get_json()
+    response = None
     if data['title'] and data['content']:
         title = data['title']
         content = data['content']
@@ -111,13 +115,15 @@ def post_new_diary():
         user_id = claims["user_id"]
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('INSERT INTO `heyMe`.`diary`(`user_id`,`title`,`content`,`created_date`)VALUES(%s,%s,%s,%s);',
-                       (user_id, title, content, datetime.now()))
+                       (12, title, content, datetime.now()))
         mysql.connection.commit()
         msg = 'Criado com sucesso!'
-        return jsonify(success=True, msg=msg), 201
+        response = jsonify(success=True, msg=msg), 201
     elif request.method == 'POST':
         msg = 'Complete os campos faltantes!'
-        return jsonify(success=False, msg=msg), 400
+        response = jsonify(success=False, msg=msg), 400
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    return response
 
 
 @application.route("/diary", methods=["GET"])
@@ -128,7 +134,9 @@ def get_diary():
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute('SELECT * FROM heyMe.diary WHERE user_id = %s', (user_id,))
     diaries = cursor.fetchall()
-    return jsonify(success=True, diaries=diaries), 200
+    response = jsonify(success=True, diaries=diaries), 200
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    return response
 
 
 @application.route("/diary/<id>", methods=["PUT"])
@@ -137,6 +145,7 @@ def put_diary(id):
     claims = get_jwt()
     user_id = claims["user_id"]
     data = request.get_json()
+    response = None
     if data['title'] and data['content']:
         title = data['title']
         content = data['content']
@@ -146,12 +155,14 @@ def put_diary(id):
         mysql.connection.commit()
         if cursor.rowcount <= 0:
             msg = 'Não encontrado ou não alterado!'
-            return jsonify(success=False, msg=msg), 404
+            response = jsonify(success=False, msg=msg), 404
         msg = 'Alterado com sucesso!'
-        return jsonify(success=True, msg=msg), 200
+        response = jsonify(success=True, msg=msg), 200
     elif request.method == 'PUT':
         msg = 'Complete os campos faltantes!'
-        return jsonify(success=False, msg=msg), 400
+        response = jsonify(success=False, msg=msg), 400
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    return response
 
 @application.route("/diary/<id>", methods=["DELETE"])
 @jwt_required()
@@ -164,9 +175,12 @@ def delete_diary(id):
     mysql.connection.commit()
     if cursor.rowcount <= 0:
         msg = 'Não encontrado!'
-        return jsonify(success=False, msg=msg), 404
-    msg = 'Deletado com sucesso!'
-    return jsonify(success=True, msg=msg), 200
+        response = jsonify(success=False, msg=msg, code=404)
+    else:
+        msg = 'Deletado com sucesso!'
+        response = jsonify(success=True, msg=msg, code=200)
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    return response
 
 @application.route("/chatbot/<message>", methods=['GET'])
 @jwt_required()
@@ -177,5 +191,4 @@ def parse_message(message):
 
 
 if __name__ == "__main__":
-    print("running")
     application.run(host='localhost', debug=True)

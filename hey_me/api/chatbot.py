@@ -49,15 +49,20 @@ def predict_class(sentence):
     for r in results:
         return_list.append({'intent': classes[r[0]], 'probability': str(r[1])})
     
+    # print('results list', results)
     return return_list
 
 # Getting the response from the chatbot
 def get_response(intents_list):
+    # print("getting response", intents_list)
     tag = intents_list[0]['intent']
     list_of_intents = intents['intents']
     for i in list_of_intents:
         if i['tag'] == tag:
-            result = random.choice(i['responses'])
+            if float(intents_list[0]['probability']) < 0.5:
+                result = "Desculpe, não entendi"
+            else:
+                result = random.choice(i['responses'])
             break
     return result
 

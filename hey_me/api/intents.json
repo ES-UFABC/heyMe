@@ -1,7 +1,7 @@
 {"intents": [
     {"tag": "greetings",
-        "patterns": ["olá", "bom dia", "oi", "boa tarde", "boa noite", "como está?"],
-        "responses": ["Como está se sentindo hoje?", "Hey! Em que posso te ajudar?"]
+        "patterns": ["olá", "ola", "bom dia", "oi", "boa tarde", "boa noite", "como está?"],
+        "responses": ["Olá, como está se sentindo hoje?", "Hey! Em que posso te ajudar?"]
     },
     {"tag": "goodbye",
         "patterns": ["tchau", "adeus", "vou sair", "preciso ir", "até mais"],
@@ -16,7 +16,7 @@
         "responses": ["Sou o Charles! Sou o chatbot do HeyMe!", "Sou um chatbot, me chamo Charles. Estou aqui para ajudar você"]
         },
     {"tag": "ansiedade",
-        "patterns": ["nervoso", "nervosa", "pânico", "respirando rápido", "suando", "sudorese", "dificuldade em se concentrar", "dificuldade em dormir"],
+        "patterns": ["nervoso", "ansioso", "nervosa", "pânico", "respirando rápido", "suando", "sudorese", "dificuldade em se concentrar", "dificuldade em dormir"],
         "responses": ["Sintomas de ansiedade"]
         },
     {"tag": "depressao",
