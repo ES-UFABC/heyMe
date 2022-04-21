@@ -8,6 +8,10 @@ from nltk.stem import WordNetLemmatizer
 
 from tensorflow.keras.models import load_model
 
+#do the training every time, comment to disable
+#needed on deploy
+import training
+
 lemmatizer = WordNetLemmatizer()
 # intents = json.loads(open('intents.json').read())
 
