@@ -115,13 +115,13 @@ def post_new_diary():
         user_id = claims["user_id"]
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('INSERT INTO `heyMe`.`diary`(`user_id`,`title`,`content`,`created_date`)VALUES(%s,%s,%s,%s);',
-                       (12, title, content, datetime.now()))
+                       (user_id, title, content, datetime.now()))
         mysql.connection.commit()
         msg = 'Criado com sucesso!'
-        response = jsonify(success=True, msg=msg), 201
+        response = jsonify(success=True, msg=msg, code=200)
     elif request.method == 'POST':
         msg = 'Complete os campos faltantes!'
-        response = jsonify(success=False, msg=msg), 400
+        response = jsonify(success=False, msg=msg, code=400)
     response.headers.add("Access-Control-Allow-Origin", "*")
     return response
 
@@ -134,7 +134,7 @@ def get_diary():
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute('SELECT * FROM heyMe.diary WHERE user_id = %s', (user_id,))
     diaries = cursor.fetchall()
-    response = jsonify(success=True, diaries=diaries), 200
+    response = jsonify(success=True, diaries=diaries, code=200)
     response.headers.add("Access-Control-Allow-Origin", "*")
     return response
 
@@ -155,12 +155,12 @@ def put_diary(id):
         mysql.connection.commit()
         if cursor.rowcount <= 0:
             msg = 'Não encontrado ou não alterado!'
-            response = jsonify(success=False, msg=msg), 404
+            response = jsonify(success=False, msg=msg, code=404)
         msg = 'Alterado com sucesso!'
-        response = jsonify(success=True, msg=msg), 200
+        response = jsonify(success=True, msg=msg, code=200)
     elif request.method == 'PUT':
         msg = 'Complete os campos faltantes!'
-        response = jsonify(success=False, msg=msg), 400
+        response = jsonify(success=False, msg=msg, code=400)
     response.headers.add("Access-Control-Allow-Origin", "*")
     return response
 
