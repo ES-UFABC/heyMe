@@ -20,11 +20,11 @@
         "responses": ["Sintomas de ansiedade"]
         },
     {"tag": "depressao",
-        "patterns": ["problema no trabalho", "sem esperança", "falta de esperança", "raiva", "reação exagerada", "como demais", "como pouco", "suicídio", "morrer", "me matar"],
+        "patterns": ["problema no trabalho", "sem esperança", "falta de esperança", "raiva", "reação exagerada", "como demais", "como pouco", "suicídio", "morrer", "me matar", "triste"],
         "responses": ["Sintomas de depressão"]
         },
     {"tag": "solidao",
-        "patterns": ["cansado", "cansada", "não tenho um amigo próximo", "não qtenho uma amiga próxima", "amigo", "uso muito rede social", "vício em rede social", "ganho de peso", "engordei", 
+        "patterns": ["cansado", "cansada", "não tenho um amigo próximo", "não tenho uma amiga próxima", "amigo", "uso muito rede social", "vício em rede social", "ganho de peso", "engordei", 
             "possessão material", "adquirir bens materiais", "introvertido", "introvertida"],
         "responses": ["Sintomas de solidão"]
         },

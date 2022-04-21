@@ -27,7 +27,8 @@ model = load_model(f'{path}/chatbot_model.h5')
 # This is for cleaning up the sentence
 
 def clean_up_sentence(sentence):
-    sentence_words = nltk.word_tokenize(sentence)
+    sentence = sentence.lower()
+    sentence_words = nltk.word_tokenize(sentence, language='portuguese')
     sentence_words = [lemmatizer.lemmatize(word) for word in sentence_words]
     return sentence_words
 
@@ -38,7 +39,7 @@ def bag_of_words(sentence):
     bag = [0] * len(words)
     for w in sentence_words:
         for i, word in enumerate(words):
-            if word == w:
+            if word == w.lower():
                 bag[i] = 1
     return np.array(bag)
 
