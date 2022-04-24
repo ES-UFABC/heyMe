@@ -8,7 +8,7 @@
         "responses": ["Obrigado pela conversa! Tchau!", "Tchau, fique bem!", "Tchau! Falo com você outro dia!"]
     },
     {"tag": "happy feelings",
-        "patterns": ["feliz", "felicidade", "alegria", "bem estar", "positivo", "positiva"],
+        "patterns": ["estou feliz", "felicidade", "alegria", "bem estar", "positivo", "positiva", "estou bem", "ótimo", "incrível"],
         "responses": ["Fico feliz por você!", "Ainda bem que está tudo bem!", "Me conte mais sobre o seu dia!"]
         },
     {"tag": "name",
@@ -16,11 +16,14 @@
         "responses": ["Sou o Charles! Sou o chatbot do HeyMe!", "Sou um chatbot, me chamo Charles. Estou aqui para ajudar você"]
         },
     {"tag": "ansiedade",
-        "patterns": ["nervoso", "ansioso", "nervosa", "pânico", "respirando rápido", "suando", "sudorese", "dificuldade em se concentrar", "dificuldade em dormir"],
+        "patterns": ["nervoso", "ansioso", "nervosa", "pânico", "respirando rápido", "suando", "sudorese", "dificuldade em se concentrar", "dificuldade em dormir",
+        "inquietação", "tenho pesadelos", "ataque de pânico", "palpitação", "falta de ar", "pensamento acelerado", "preocupação"],
         "responses": ["Sintomas de ansiedade"]
         },
     {"tag": "depressao",
-        "patterns": ["problema no trabalho", "sem esperança", "falta de esperança", "raiva", "reação exagerada", "como demais", "como pouco", "suicídio", "morrer", "me matar", "triste"],
+        "patterns": ["problema no trabalho", "sem esperança", "falta de esperança", "raiva", "reação exagerada", "como demais", "como pouco", "suicídio", "morrer", "me matar", "triste",
+        "problemas em dormir", "insônia", "durmo pouco", "choro demais", "choro muito", "sofrimento", "apatia", "fadiga", "muitos pensamentos", "pensamentos incessantes", "pensamento suicida",
+        "nada faz sentido"],
         "responses": ["Sintomas de depressão"]
         },
     {"tag": "solidao",
@@ -30,7 +33,10 @@
         },
     {"tag": "estresse",
         "patterns": ["memórias estressantes", "pesadelos", "sonhos ruins", "evito pessoas", "evito atividades", "evito sair", "evito fazer coisas diferentes", "negatividade", "me sinto negativo", 
-                "me sinto negativa", "problemas de concentração", "não consigo me concentrar", "culpa", "me culpo"],
+                "me sinto negativa", "problemas de concentração", "não consigo me concentrar", "culpa", "me culpo", "irritado"],
          "responses": ["Sintomas de estresse"]
-         }
+         },
+    {"tag": "neutro",
+        "patterns": ["não triste", "não estressado", "não deprimido", "não nervoso", "não ansioso", "não tenho", "nenhum problema"],
+        "responses": ["Neutro"]}
 ]}
