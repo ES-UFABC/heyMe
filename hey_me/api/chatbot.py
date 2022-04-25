@@ -10,10 +10,14 @@ from tensorflow.keras.models import load_model
 
 #do the training every time, comment to disable
 #needed on deploy
-import training
+# import training
+
+possible_outcomes = {"ansiedade": 0, "depressao": 0}
 
 lemmatizer = WordNetLemmatizer()
 # intents = json.loads(open('intents.json').read())
+
+details = ["O que mais você sente?"]
 
 path = os.path.dirname(__file__)
 
@@ -64,6 +68,13 @@ def get_response(intents_list):
     list_of_intents = intents['intents']
     for i in list_of_intents:
         if i['tag'] == tag:
+            if tag.startswith('ansiedade'):
+                possible_outcomes['ansiedade'] += 1
+                print(possible_outcomes)
+            for k, v in possible_outcomes.items():
+                if v > 3:
+                    result = "Acho que seu caso é complicado demais para mim, pois creio que possa estar com {}. Gostaria de seguir para um acompanhamento com psicoterapeuta?".format(k)
+                    return result
             if float(intents_list[0]['probability']) < 0.5:
                 result = "Desculpe, não entendi"
             else:

@@ -30,6 +30,7 @@ mysql = MySQL(application)
 
 jwt_blocklist = []
 
+last_sent_response = ''
 
 @jwt.token_in_blocklist_loader
 def check_if_token_is_revoked(jwt_header, jwt_payload):
@@ -182,12 +183,20 @@ def delete_diary(id):
     response.headers.add("Access-Control-Allow-Origin", "*")
     return response
 
+perguntas_yes_no = ["Voce está se sentindo ansioso (a)?", "Voce está se sentindo nervoso (a)?"]
 @application.route("/chatbot/<message>", methods=['GET'])
 @jwt_required()
 def parse_message(message):
-    ints = chatbot.predict_class(message)
-    res = chatbot.get_response(ints)
-    return jsonify(response=res)
+    global last_sent_response
+    if last_sent_response in perguntas_yes_no and message == 'sim':
+        ints = chatbot.predict_class(last_sent_response)
+    else:
+        ints = chatbot.predict_class(message)
+    msg = chatbot.get_response(ints)
+    res = jsonify(success=True, msg=msg)
+    last_sent_response = msg
+    res.headers.add("Access-Control-Allow-Origin", "*")
+    return res
 
 
 if __name__ == "__main__":

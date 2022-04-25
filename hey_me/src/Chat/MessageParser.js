@@ -25,7 +25,7 @@ class MessageParser {
         let response = await axios.get(`${localStorage.getItem("api-endpoint")}/chatbot/${message}`, config);
         let res = await response.data;
         console.log(res);
-        self.actionProvider.respondUser(res['response']);
+        self.actionProvider.respondUser(res['msg']);
     }
     sendMessage(self);
     // console.log("message sent");

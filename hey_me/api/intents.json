@@ -8,23 +8,28 @@
         "responses": ["Obrigado pela conversa! Tchau!", "Tchau, fique bem!", "Tchau! Falo com você outro dia!"]
     },
     {"tag": "happy feelings",
-        "patterns": ["estou feliz", "felicidade", "alegria", "bem estar", "positivo", "positiva", "estou bem", "ótimo", "incrível"],
+        "patterns": ["feliz", "felicidade", "alegria", "bem estar", "positivo", "positiva", "bem", "ótimo", "incrível"],
         "responses": ["Fico feliz por você!", "Ainda bem que está tudo bem!", "Me conte mais sobre o seu dia!"]
         },
     {"tag": "name",
         "patterns": ["qual é o seu nome?", "quem é você?", "com quem estou falando?"],
         "responses": ["Sou o Charles! Sou o chatbot do HeyMe!", "Sou um chatbot, me chamo Charles. Estou aqui para ajudar você"]
         },
-    {"tag": "ansiedade",
+    {"tag": "ansiedade1",
         "patterns": ["nervoso", "ansioso", "nervosa", "pânico", "respirando rápido", "suando", "sudorese", "dificuldade em se concentrar", "dificuldade em dormir",
         "inquietação", "tenho pesadelos", "ataque de pânico", "palpitação", "falta de ar", "pensamento acelerado", "preocupação"],
-        "responses": ["Sintomas de ansiedade"]
+        "responses": ["Me conte mais sobre o que você está sentindo?", "O que você sente?"]
         },
+        {"tag": "ansiedade2",
+            "patterns": ["respirando rápido", "suando", "sudorese", "dificuldade em se concentrar", "dificuldade em dormir",
+            "inquietação", "tenho pesadelos", "ataque de pânico", "palpitação", "falta de ar", "pensamento acelerado", "preocupação"],
+            "responses": ["Voce está se sentindo ansioso (a)?", "Voce está se sentindo nervoso (a)?"]
+            },
     {"tag": "depressao",
         "patterns": ["problema no trabalho", "sem esperança", "falta de esperança", "raiva", "reação exagerada", "como demais", "como pouco", "suicídio", "morrer", "me matar", "triste",
         "problemas em dormir", "insônia", "durmo pouco", "choro demais", "choro muito", "sofrimento", "apatia", "fadiga", "muitos pensamentos", "pensamentos incessantes", "pensamento suicida",
         "nada faz sentido"],
-        "responses": ["Sintomas de depressão"]
+        "responses": ["Me conte mais sobre o que você está sentindo?", "O que você sente?"]
         },
     {"tag": "solidao",
         "patterns": ["cansado", "cansada", "não tenho um amigo próximo", "não tenho uma amiga próxima", "amigo", "uso muito rede social", "vício em rede social", "ganho de peso", "engordei", 
@@ -38,5 +43,8 @@
          },
     {"tag": "neutro",
         "patterns": ["não triste", "não estressado", "não deprimido", "não nervoso", "não ansioso", "não tenho", "nenhum problema"],
-        "responses": ["Neutro"]}
+        "responses": ["Neutro"]},
+    {"tag": "generico",
+        "patterns": ["não", "nao"],
+        "responses": ["Então o que você sente?", "O que você está sentindo?"]}
 ]}
