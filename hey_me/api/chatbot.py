@@ -10,7 +10,7 @@ from tensorflow.keras.models import load_model
 
 #do the training every time, comment to disable
 #needed on deploy
-# import training
+import training
 
 possible_outcomes = {"ansiedade": 0, "depressao": 0}
 
