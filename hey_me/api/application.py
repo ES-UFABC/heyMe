@@ -12,7 +12,7 @@ application = Flask(__name__)
 
 application.secret_key = '7e0c336cc44b'
 
-ACCESS_EXPIRES = timedelta(hours=1)
+ACCESS_EXPIRES = timedelta(hours=24)
 
 application.config['JWT_SECRET_KEY'] = '7e0c336cc44b'
 application.config["JWT_ACCESS_TOKEN_EXPIRES"] = ACCESS_EXPIRES
