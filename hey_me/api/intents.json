@@ -19,27 +19,31 @@
         "patterns": ["nervoso", "nervosa", "nervosismo", "ansioso", "ansiosa", "ansiedade", "agitado", "agitada", "agitação",
             "inquieto", "inquieta", "inquietação", "impaciente", "impaciência", "impaciencia", "descontrolado", "descontrolada", 
             "descontrole", "falta de controle", "tenso", "tensa", "tensão", "preocupado", "preocupada", "preocupação", "pensamento acelerado",
-            "irritado", "irritada", "irritadiço", "irritadiça", "irritação"],
+            "irritado", "irritada", "irritadiço", "irritadiça", "irritação", "dificuldade em se concentrar",
+            "dificuldade concentração", "dificuldade atenção"],
         "responses": ["Você tem tido dificuldades para dormir?", "Você tem tido insônia?", "Você tem tido dificuldades para se concentrar?", 
             "Você sente algum medo recorrente?"]
         },
     {"tag": "ansiedade2",
         "patterns": ["dificuldade dormir", "dificuldades dormir", "insônia", "sono leve", "acordo abruptamente", "pesadelos"],
-        "responses": ["Há algo que te causa preocupação?"]
+        "responses": ["Há algo que te causa preocupação?", "Você se sente inquieto (a)?", "Tem algum pensamento que não sai da sua cabeça?"]
         },
     {"tag": "ansiedade3",
-        "patterns": ["medo", "trauma", "traumatizado", "aterrorizado", "terror", "pavor", "temor", "pânico", "fobia", "aversão"],
-        "responses": ["Voce está se sentindo ansioso (a)?", "Voce está se sentindo nervoso (a)?"]
+        "patterns": ["medo", "trauma", "traumatizado", "aterrorizado", "terror", "pavor", "temor", "pânico", "fobia", "aversão",
+        "inseguro", "insegura", "insegurança"],
+        "responses": ["Isso te causa muita preocupação?", "Voce está se sente nervoso (a)?", "Você sente dificuldades para dormir?"]
         },
     {"tag": "ansiedade4",
-        "patterns": ["perfeccionista", "perfeccionismo", "pensamentos obsessivos", "obsessão"],
-        "responses": ["Voce está se sentindo ansioso (a)?", "Voce está se sentindo nervoso (a)?"]
+        "patterns": ["perfeccionista", "perfeccionismo", "pensamentos obsessivos", "obsessão", "pensamento cabeça", "toc"],
+        "responses": ["Voce se sente ansioso (a)?", "Voce se sente tenso (a)?", "Você sente alguma tensão no seu corpo?",
+            "Você tem tido dificuldades para se concentrar?"]
         },
     {"tag": "ansiedade5",
-        "patterns": ["respirando rápido", "suando", "sudorese", "dificuldade em se concentrar", "dificuldade concentração",
-        "ataque de pânico", "palpitação", "falta de ar", "pensamento acelerado"],
+        "patterns": ["respirando rápido", "suando", "suor", "sudorese", "palpitação", "falta de ar",
+             "pensamento acelerado", "problemas digestivos", "indigestão", "estômago", "gastrite", "barriga"],
         "responses": ["Voce está se sentindo ansioso (a)?", "Voce está se sentindo nervoso (a)?", 
-            "Me conte mais sobre o que você está sentindo?", "O que você sente?"]
+            "Tem algum pensamento que não sai da sua cabeça?", "Você sente dificuldades para dormir?",
+            "Você tem tido dificuldades para se concentrar?"]
         },
     {"tag": "depressao",
         "patterns": ["problema no trabalho", "sem esperança", "falta de esperança", "raiva", "reação exagerada", "como demais", "como pouco", "suicídio", "morrer", "me matar", "triste",
