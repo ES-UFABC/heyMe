@@ -19,7 +19,7 @@
         "patterns": ["nervoso", "nervosa", "nervosismo", "ansioso", "ansiosa", "ansiedade", "agitado", "agitada", "agitação",
             "inquieto", "inquieta", "inquietação", "impaciente", "impaciência", "impaciencia", "descontrolado", "descontrolada", 
             "descontrole", "falta de controle", "tenso", "tensa", "tensão", "preocupado", "preocupada", "preocupação", "pensamento acelerado",
-            "irritado", "irritada", "irritadiço", "irritadiça", "irritação", "perfeccionista", "perfeccionismo"],
+            "irritado", "irritada", "irritadiço", "irritadiça", "irritação"],
         "responses": ["Você tem tido dificuldades para dormir?", "Você tem tido insônia?", "Você tem tido dificuldades para se concentrar?", 
             "Você sente algum medo recorrente?"]
         },
@@ -32,6 +32,10 @@
         "responses": ["Voce está se sentindo ansioso (a)?", "Voce está se sentindo nervoso (a)?"]
         },
     {"tag": "ansiedade4",
+        "patterns": ["perfeccionista", "perfeccionismo", "pensamentos obsessivos", "obsessão"],
+        "responses": ["Voce está se sentindo ansioso (a)?", "Voce está se sentindo nervoso (a)?"]
+        },
+    {"tag": "ansiedade5",
         "patterns": ["respirando rápido", "suando", "sudorese", "dificuldade em se concentrar", "dificuldade concentração",
         "ataque de pânico", "palpitação", "falta de ar", "pensamento acelerado"],
         "responses": ["Voce está se sentindo ansioso (a)?", "Voce está se sentindo nervoso (a)?", 
