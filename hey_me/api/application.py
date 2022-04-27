@@ -12,7 +12,7 @@ application = Flask(__name__)
 
 application.secret_key = '7e0c336cc44b'
 
-ACCESS_EXPIRES = timedelta(hours=1)
+ACCESS_EXPIRES = timedelta(hours=24)
 
 application.config['JWT_SECRET_KEY'] = '7e0c336cc44b'
 application.config["JWT_ACCESS_TOKEN_EXPIRES"] = ACCESS_EXPIRES
@@ -98,6 +98,8 @@ def login():
 @application.route("/logout_back", methods=["DELETE"])
 @jwt_required()
 def logout():
+    chatbot.possible_outcomes["ansiedade"] = 0
+    chatbot.possible_outcomes["depressao"] = 0
     jti = get_jwt()["jti"]
     jwt_blocklist.append(jti)
     response = jsonify(msg="Deslogado")
@@ -183,7 +185,11 @@ def delete_diary(id):
     response.headers.add("Access-Control-Allow-Origin", "*")
     return response
 
-perguntas_yes_no = ["Voce está se sentindo ansioso (a)?", "Voce está se sentindo nervoso (a)?"]
+perguntas_yes_no = ["Você tem tido dificuldades para dormir?", "Você tem tido insônia?", 
+        "Você tem tido dificuldades para se concentrar?", "Você sente algum medo recorrente?",
+        "Há algo que te causa preocupação?", "Você se sente inquieto (a)?", "Tem algum pensamento que não sai da sua cabeça?",
+        "Isso te causa muita preocupação?", "Voce se sente nervoso (a)?", "Você sente dificuldades para dormir?",
+        "Voce se sente ansioso (a)?", "Voce se sente tenso (a)?", "Você sente alguma tensão no seu corpo?"]
 @application.route("/chatbot/<message>", methods=['GET'])
 @jwt_required()
 def parse_message(message):
