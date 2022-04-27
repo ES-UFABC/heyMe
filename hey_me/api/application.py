@@ -98,6 +98,8 @@ def login():
 @application.route("/logout_back", methods=["DELETE"])
 @jwt_required()
 def logout():
+    chatbot.possible_outcomes["ansiedade"] = 0
+    chatbot.possible_outcomes["depressao"] = 0
     jti = get_jwt()["jti"]
     jwt_blocklist.append(jti)
     response = jsonify(msg="Deslogado")
