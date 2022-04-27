@@ -2,7 +2,6 @@
 import { createChatBotMessage } from "react-chatbot-kit";
 
 import LearningOptions from "./LearningOptions";
-import LinkList from "./LinkList";
 
 const config = {
   initialMessages: [createChatBotMessage(`Olá!`)],
