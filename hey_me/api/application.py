@@ -195,6 +195,9 @@ def parse_message(message):
     msg = chatbot.get_response(ints)
     res = jsonify(success=True, msg=msg)
     last_sent_response = msg
+    if "psicoterapeuta" in last_sent_response:
+        for k, v in chatbot.possible_outcomes.items():
+            chatbot.possible_outcomes[k] = 0
     res.headers.add("Access-Control-Allow-Origin", "*")
     return res
 

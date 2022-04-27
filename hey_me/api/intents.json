@@ -17,7 +17,7 @@
         },
     {"tag": "ansiedade1",
         "patterns": ["nervoso", "ansioso", "nervosa", "pânico", "respirando rápido", "suando", "sudorese", "dificuldade em se concentrar", "dificuldade em dormir",
-        "inquietação", "tenho pesadelos", "ataque de pânico", "palpitação", "falta de ar", "pensamento acelerado", "preocupação"],
+        "inquietação", "ataque de pânico", "palpitação", "falta de ar", "pensamento acelerado", "preocupação"],
         "responses": ["Me conte mais sobre o que você está sentindo?", "O que você sente?"]
         },
         {"tag": "ansiedade2",

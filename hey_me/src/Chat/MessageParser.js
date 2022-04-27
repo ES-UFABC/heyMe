@@ -6,8 +6,6 @@ class MessageParser {
       this.state = state;
     }
 
-    
-  
     parse(message) {
     // this.state = {open: false};
     var self = this;

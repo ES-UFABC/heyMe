@@ -1,6 +1,9 @@
 // Config starter code
 import { createChatBotMessage } from "react-chatbot-kit";
 
+import LearningOptions from "./LearningOptions";
+import LinkList from "./LinkList";
+
 const config = {
   initialMessages: [createChatBotMessage(`Olá!`)],
   customComponents: {
@@ -20,6 +23,12 @@ const config = {
         Converse com Charles, o robô
         </div>
   },
+  widgets: [
+      {
+        widgetName: "learningOptions",
+      widgetFunc: (props) => <LearningOptions {...props} />,
+      },
+  ],
 }
 
 export default config
