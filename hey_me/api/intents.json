@@ -31,7 +31,7 @@
     {"tag": "ansiedade3",
         "patterns": ["medo", "trauma", "traumatizado", "aterrorizado", "terror", "pavor", "temor", "pânico", "fobia", "aversão",
         "inseguro", "insegura", "insegurança"],
-        "responses": ["Isso te causa muita preocupação?", "Voce está se sente nervoso (a)?", "Você sente dificuldades para dormir?"]
+        "responses": ["Isso te causa muita preocupação?", "Voce se sente nervoso (a)?", "Você sente dificuldades para dormir?"]
         },
     {"tag": "ansiedade4",
         "patterns": ["perfeccionista", "perfeccionismo", "pensamentos obsessivos", "obsessão", "pensamento cabeça", "toc"],
