@@ -185,7 +185,11 @@ def delete_diary(id):
     response.headers.add("Access-Control-Allow-Origin", "*")
     return response
 
-perguntas_yes_no = ["Voce está se sentindo ansioso (a)?", "Voce está se sentindo nervoso (a)?"]
+perguntas_yes_no = ["Você tem tido dificuldades para dormir?", "Você tem tido insônia?", 
+        "Você tem tido dificuldades para se concentrar?", "Você sente algum medo recorrente?",
+        "Há algo que te causa preocupação?", "Você se sente inquieto (a)?", "Tem algum pensamento que não sai da sua cabeça?",
+        "Isso te causa muita preocupação?", "Voce se sente nervoso (a)?", "Você sente dificuldades para dormir?",
+        "Voce se sente ansioso (a)?", "Voce se sente tenso (a)?", "Você sente alguma tensão no seu corpo?"]
 @application.route("/chatbot/<message>", methods=['GET'])
 @jwt_required()
 def parse_message(message):
