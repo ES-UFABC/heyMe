@@ -198,19 +198,14 @@ def parse_message(message):
         ints = chatbot.predict_class(last_sent_response)
     else:
         ints = chatbot.predict_class(message)
-    # msg = chatbot.get_response(ints)
-    msg, tag = chatbot.get_response(ints)
-    tag = jsonify(success=True, msg=tag)
-    #
+    msg = chatbot.get_response(ints)
     res = jsonify(success=True, msg=msg)
     last_sent_response = msg
     if "psicoterapeuta" in last_sent_response:
         for k, v in chatbot.possible_outcomes.items():
             chatbot.possible_outcomes[k] = 0
-    # res.headers.add("Access-Control-Allow-Origin", "*")
-    tag.headers.add("Access-Control-Allow-Origin", "*")
-    # return res
-    return tag
+    res.headers.add("Access-Control-Allow-Origin", "*")
+    return res
 
 
 if __name__ == "__main__":

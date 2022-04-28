@@ -80,8 +80,7 @@ def get_response(intents_list):
             else:
                 result = random.choice(i['responses'])
             break
-    # return result
-    return result, tag
+    return result
 
 print("The chatbot is working")
 
