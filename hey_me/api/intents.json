@@ -29,7 +29,7 @@
         "responses": ["Você tem tido dificuldades para dormir?", "Você tem tido insônia?", "Você tem tido dificuldades para se concentrar?", 
             "Você sente algum medo recorrente?"]
         },
-    {"tag": "ansiedade1",
+    {"tag": "ansiedade1-3",
         "patterns": ["irritado", "irritada", "irritadiço", "irritadiça", "irritação", "dificuldade em se concentrar",
             "dificuldade concentração", "dificuldade atenção"],
         "responses": ["Você tem tido dificuldades para dormir?", "Você tem tido insônia?", "Você tem tido dificuldades para se concentrar?", 
