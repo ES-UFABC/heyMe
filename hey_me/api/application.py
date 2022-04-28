@@ -207,7 +207,8 @@ def parse_message(message):
     if "psicoterapeuta" in last_sent_response:
         for k, v in chatbot.possible_outcomes.items():
             chatbot.possible_outcomes[k] = 0
-    res.headers.add("Access-Control-Allow-Origin", "*")
+    # res.headers.add("Access-Control-Allow-Origin", "*")
+    tag.headers.add("Access-Control-Allow-Origin", "*")
     # return res
     return tag
 
