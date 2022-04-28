@@ -75,7 +75,7 @@ def get_response(intents_list):
                 if v > 3:
                     result = "Acho que seu caso é complicado demais para mim, pois creio que possa estar com {}. Gostaria de seguir para um acompanhamento com psicoterapeuta?".format(k)
                     return result
-            if float(intents_list[0]['probability']) < 0.5:
+            if float(intents_list[0]['probability']) < 0.3:
                 result = "Desculpe, não entendi"
             else:
                 result = random.choice(i['responses'])
