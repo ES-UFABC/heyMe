@@ -16,10 +16,21 @@
         "responses": ["Sou o Charles! Sou o chatbot do HeyMe!", "Sou um chatbot, me chamo Charles. Estou aqui para ajudar você"]
         },
     {"tag": "ansiedade1",
-        "patterns": ["nervoso", "nervosa", "nervosismo", "ansioso", "ansiosa", "ansiedade", "agitado", "agitada", "agitação",
-            "inquieto", "inquieta", "inquietação", "impaciente", "impaciência", "impaciencia", "descontrolado", "descontrolada", 
-            "descontrole", "falta de controle", "tenso", "tensa", "tensão", "preocupado", "preocupada", "preocupação", "pensamento acelerado",
-            "irritado", "irritada", "irritadiço", "irritadiça", "irritação", "dificuldade em se concentrar",
+        "patterns": ["nervoso", "nervosa", "nervosismo", "ansioso", "ansiosa", "ansiedade", "agitado", "agitada", "agitação"],
+        "responses": ["Você tem tido dificuldades para dormir?", "Você tem tido insônia?", "Você tem tido dificuldades para se concentrar?", 
+            "Você sente algum medo recorrente?"]
+        },
+    {"tag": "ansiedade1-1",
+        "patterns": ["inquieto", "inquieta", "inquietação", "impaciente", "impaciência", "impaciencia", "descontrolado", "descontrolada"],
+        "responses": ["Você tem tido dificuldades para dormir?", "Você tem tido insônia?", "Você tem tido dificuldades para se concentrar?", "Você sente algum medo recorrente?"]
+        },
+    {"tag": "ansiedade1-2",
+        "patterns": ["descontrole", "falta de controle", "tenso", "tensa", "tensão", "preocupado", "preocupada", "preocupação", "pensamento acelerado"],
+        "responses": ["Você tem tido dificuldades para dormir?", "Você tem tido insônia?", "Você tem tido dificuldades para se concentrar?", 
+            "Você sente algum medo recorrente?"]
+        },
+    {"tag": "ansiedade1",
+        "patterns": ["irritado", "irritada", "irritadiço", "irritadiça", "irritação", "dificuldade em se concentrar",
             "dificuldade concentração", "dificuldade atenção"],
         "responses": ["Você tem tido dificuldades para dormir?", "Você tem tido insônia?", "Você tem tido dificuldades para se concentrar?", 
             "Você sente algum medo recorrente?"]
