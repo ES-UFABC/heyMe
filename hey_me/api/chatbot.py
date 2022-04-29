@@ -62,8 +62,10 @@ def predict_class(sentence):
     return return_list
 
 # Getting the response from the chatbot
-def get_response(intents_list):
+def get_response(intents_list, repeated):
     # print("getting response", intents_list)
+    if len(intents_list) <= 0:
+        return "Desculpe, ocorreu algum erro. Poderia repetir por favor?"
     tag = intents_list[0]['intent']
     list_of_intents = intents['intents']
     for i in list_of_intents:
@@ -71,10 +73,11 @@ def get_response(intents_list):
             if float(intents_list[0]['probability']) < 0.5:
                 result = "Desculpe, não entendi"
             else:
-                if tag.startswith('ansiedade'):
-                    possible_outcomes['ansiedade'] += 1
-                elif tag.startswith('depressao'):
-                    possible_outcomes['depressao'] += 1
+                if not repeated:
+                    if tag.startswith('ansiedade'):
+                        possible_outcomes['ansiedade'] += 1
+                    elif tag.startswith('depressao'):
+                        possible_outcomes['depressao'] += 1
                     
                 for k, v in possible_outcomes.items():
                     if v > 3:

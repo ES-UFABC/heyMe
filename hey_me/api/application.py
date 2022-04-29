@@ -185,20 +185,19 @@ def delete_diary(id):
     response.headers.add("Access-Control-Allow-Origin", "*")
     return response
 
-perguntas_yes_no = ["Você tem tido dificuldades para dormir?", "Você tem tido insônia?", 
-        "Você tem tido dificuldades para se concentrar?", "Você sente algum medo recorrente?",
-        "Há algo que te causa preocupação?", "Você se sente inquieto (a)?", "Tem algum pensamento que não sai da sua cabeça?",
-        "Isso te causa muita preocupação?", "Voce se sente nervoso (a)?", "Você sente dificuldades para dormir?",
-        "Voce se sente ansioso (a)?", "Voce se sente tenso (a)?", "Você sente alguma tensão no seu corpo?"]
 @application.route("/chatbot/<message>", methods=['GET'])
 @jwt_required()
 def parse_message(message):
     global last_sent_response
-    if last_sent_response in perguntas_yes_no and message == 'sim':
+    repeated = False
+    if message == 'ja sim' or message == 'ja nao':
+        repeated = True
+    if last_sent_response.startswith('|#|') and message == 'sim':
+        print("caiu certo", last_sent_response)
         ints = chatbot.predict_class(last_sent_response)
     else:
         ints = chatbot.predict_class(message)
-    msg = chatbot.get_response(ints)
+    msg = chatbot.get_response(ints, repeated)
     res = jsonify(success=True, msg=msg)
     last_sent_response = msg
     if "psicoterapeuta" in last_sent_response:
@@ -206,7 +205,6 @@ def parse_message(message):
             chatbot.possible_outcomes[k] = 0
     res.headers.add("Access-Control-Allow-Origin", "*")
     return res
-
 
 if __name__ == "__main__":
     application.run(host='localhost', debug=True)
