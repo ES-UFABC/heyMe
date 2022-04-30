@@ -56,11 +56,38 @@
             "|#|Tem algum pensamento que não sai da sua cabeça?", "|#|Você sente dificuldades para dormir?",
             "|#|Você tem tido dificuldades para se concentrar?"]
         },
-    {"tag": "depressao",
-        "patterns": ["problema no trabalho", "sem esperança", "falta de esperança", "raiva", "reação exagerada", "como demais", "como pouco", "suicídio", "morrer", "me matar", "triste",
-        "problemas em dormir", "insônia", "durmo pouco", "choro demais", "choro muito", "sofrimento", "apatia", "fadiga", "muitos pensamentos", "pensamentos incessantes", "pensamento suicida",
-        "nada faz sentido"],
-        "responses": ["Me conte mais sobre o que você está sentindo?", "O que você sente?"]
+    {"tag": "depressao1",
+        "patterns": ["problema trabalho", "raiva", "reação exagerada", "como", "comer", "fadiga", "dores corpo", "falta apetite"],
+        "responses": ["|#|Você se sente triste?", "|#|Você se sente cansado (a)?", "|#|Você tem estado de mal humor?"]
+        },
+    {"tag": "depressao2",
+        "patterns": ["suicídio", "morrer", "matar", "morte", "sofrimento", "sofrendo", "sofro", "pensamento suicida", "suicidar"],
+        "responses": ["|#|Você se sente triste?", "|#|Você se sente sem esperança?", 
+            "|#|Você sente falta de interesse nas atividades do dia a dia?", "|#|Você se sente inútil?"]
+        },
+    {"tag": "depressao3",
+        "patterns": ["triste", "tristeza", "choro", "chorar", "chorando", "chateado", "chateada", "chato"],
+        "responses": ["|#|Você sente dores no corpo?", "|#|Você se sente culpado (a)?",
+            "|#|Você se sente angustiado (a)?", "|#|Você sente que a vida está sem sentido?"]
+        },
+    {"tag": "depressao3-1",
+        "patterns": ["sem esperança", "falta esperança", "vazio", "pessimismo", "inútil", "crise", "mal humor"],
+        "responses": ["|#|Você sente que a vida está sem sentido?", "|#|Você sente que perdeu interesse nas coisas?",
+            "|#|Você tem tido pensamentos relacionados a morte?"]
+        },
+    {"tag": "depressao3-2",
+        "patterns": ["cansaço", "cansada", "cansado", "culpa", "culpado", "culpada"],
+        "responses": ["|#|Você sente dores no corpo?", "|#|Você se sente inútil?", "|#|Você se sente triste?"]
+        },
+    {"tag": "depressao3-3",
+        "patterns": ["apatia", "nada faz sentido", "sem sentido", "falta vontade", "desinteresse", "falta interesse"],
+        "responses": ["|#|Você se sente triste?", "|#|Você tem tido pensamentos relacionados a morte?", 
+            "|#|Você se sente sem energia?"]
+        },
+    {"tag": "depressao4",
+        "patterns": ["lentidão", "lento", "lenta", "sem energia", "indecisão", "angústia", "angustiado", "angustiada"],
+        "responses": ["|#|Você se sente triste?", "|#|Você sente que perdeu interesse nas coisas?", 
+            "|#|Você tem sentimentos de culpa?", "|#|Você está se sentindo sem esperança?"]
         },
     {"tag": "solidao",
         "patterns": ["cansado", "cansada", "não tenho um amigo próximo", "não tenho uma amiga próxima", "amigo", "uso muito rede social", "vício em rede social", "ganho de peso", "engordei", 
