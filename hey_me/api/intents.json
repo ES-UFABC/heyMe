@@ -62,7 +62,7 @@
             "|#|Você tem tido dificuldades para se concentrar?"]
         },
     {"tag": "depressao1",
-        "patterns": ["problema trabalho", "raiva", "reação exagerada", "como", "comer", "fadiga", "dores corpo", "falta apetite"],
+        "patterns": ["problema trabalho", "reação exagerada", "como", "comer", "fadiga", "dores corpo", "falta apetite"],
         "responses": ["|#|Você se sente triste?", "|#|Você se sente cansado (a)?", "|#|Você tem estado de mal humor?"]
         },
     {"tag": "depressao2",
@@ -94,6 +94,11 @@
         "responses": ["|#|Você se sente triste?", "|#|Você sente que perdeu interesse nas coisas?", 
             "|#|Você tem sentimentos de culpa?", "|#|Você está se sentindo sem esperança?"]
         },
+    {"tag": "depressao5",
+        "patterns": ["solitário", "solitária", "sozinho", "sozinha", "solidão", "afastamento", "isolamento", "solitude"],
+        "responses": ["|#|Você se sente triste?", "|#|Você sente que perdeu interesse nas coisas?", 
+            "|#|Você tem sentimentos de culpa?", "|#|Você está se sentindo sem esperança?"]
+        },
     {"tag": "generico1",
         "patterns": ["não", "nao"],
         "responses": ["Então o que você sente?", "O que você está sentindo?"]
@@ -101,5 +106,9 @@
     {"tag": "generico2",
         "patterns": ["Já disse que sim"],
         "responses": ["Então o que você sente?", "O que você está sentindo?"]
+        }
+    {"tag": "estresses_do_dia_a_dia",
+        "patterns": ["bravo", "raiva", "estressado", "estresse", "stress", "furioso", "frustrado", "frustrada", "frustração"],
+        "responses": ["O que você acha que te deixou incomodado(a)?", "O que você acha que causou esse sentimento?"]
         }
 ]}
