@@ -9,7 +9,12 @@
     },
     {"tag": "happy feelings",
         "patterns": ["feliz", "felicidade", "alegria", "bem estar", "positivo", "positiva", "bem", "ótimo", "incrível"],
-        "responses": ["Fico feliz por você!\nTem algo que te incomoda?", "Ainda bem que está tudo bem!", "Me conte mais sobre o seu dia!"]
+        "responses": ["|#|Fico feliz por você!\nTem algo que te incomoda?", 
+            "|#|Ainda bem que está bem!\nAconteceu algo recentemente que te incomodou?", "Me conte mais sobre o seu dia!"]
+        },
+    {"tag": "incomodado",
+        "patterns": ["incomodou"],
+        "responses": ["O que tem te incomodado?", "O que é que te incomoda?"]
         },
     {"tag": "name",
         "patterns": ["qual é o seu nome?", "quem é você?", "com quem estou falando?"],
