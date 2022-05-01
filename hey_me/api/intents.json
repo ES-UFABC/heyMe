@@ -1,6 +1,6 @@
 {"intents": [
     {"tag": "greetings",
-        "patterns": ["olá", "ola", "bom dia", "oi", "boa tarde", "boa noite", "como está?"],
+        "patterns": ["olá", "ola", "dia", "oi", "tarde", "noite", "como está?"],
         "responses": ["Olá, como está se sentindo hoje?", "Hey! Em que posso te ajudar?"]
     },
     {"tag": "goodbye",
@@ -9,7 +9,7 @@
     },
     {"tag": "happy feelings",
         "patterns": ["feliz", "felicidade", "alegria", "bem estar", "positivo", "positiva", "bem", "ótimo", "incrível"],
-        "responses": ["Fico feliz por você!", "Ainda bem que está tudo bem!", "Me conte mais sobre o seu dia!"]
+        "responses": ["Fico feliz por você!\nTem algo que te incomoda?", "Ainda bem que está tudo bem!", "Me conte mais sobre o seu dia!"]
         },
     {"tag": "name",
         "patterns": ["qual é o seu nome?", "quem é você?", "com quem estou falando?"],
