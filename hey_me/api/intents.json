@@ -13,7 +13,7 @@
             "Me conte mais sobre o seu dia!"]
         },
     {"tag": "incomodado",
-        "patterns": ["incomodou"],
+        "patterns": ["incomodou", "incomoda"],
         "responses": ["O que tem te incomodado?", "O que é que te incomoda?"]
         },
     {"tag": "name",
