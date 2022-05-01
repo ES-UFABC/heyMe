@@ -94,20 +94,12 @@
         "responses": ["|#|Você se sente triste?", "|#|Você sente que perdeu interesse nas coisas?", 
             "|#|Você tem sentimentos de culpa?", "|#|Você está se sentindo sem esperança?"]
         },
-    {"tag": "solidao",
-        "patterns": ["cansado", "cansada", "não tenho um amigo próximo", "não tenho uma amiga próxima", "amigo", "uso muito rede social", "vício em rede social", "ganho de peso", "engordei", 
-            "possessão material", "adquirir bens materiais", "introvertido", "introvertida"],
-        "responses": ["Sintomas de solidão"]
-        },
-    {"tag": "estresse",
-        "patterns": ["memórias estressantes", "pesadelos", "sonhos ruins", "evito pessoas", "evito atividades", "evito sair", "evito fazer coisas diferentes", "negatividade", "me sinto negativo", 
-                "me sinto negativa", "problemas de concentração", "não consigo me concentrar", "culpa", "me culpo", "irritado"],
-         "responses": ["Sintomas de estresse"]
-         },
-    {"tag": "neutro",
-        "patterns": ["não triste", "não estressado", "não deprimido", "não nervoso", "não ansioso", "não tenho", "nenhum problema"],
-        "responses": ["Neutro"]},
-    {"tag": "generico",
+    {"tag": "generico1",
         "patterns": ["não", "nao"],
-        "responses": ["Então o que você sente?", "O que você está sentindo?"]}
+        "responses": ["Então o que você sente?", "O que você está sentindo?"]
+        },
+    {"tag": "generico2",
+        "patterns": ["Já disse que sim"],
+        "responses": ["Então o que você sente?", "O que você está sentindo?"]
+        }
 ]}
