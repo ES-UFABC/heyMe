@@ -108,7 +108,8 @@
         "responses": ["Então o que você sente?", "O que você está sentindo?"]
         },
     {"tag": "estresses_do_dia_a_dia",
-        "patterns": ["bravo", "raiva", "estressado", "estresse", "stress", "furioso", "frustrado", "frustrada", "frustração"],
+        "patterns": ["bravo", "raiva", "estressado", "estresse", "stress", "furioso", "frustrado", "frustrada", "frustração",
+            "mal", "ruim"],
         "responses": ["O que você acha que te deixou incomodado(a)?", "O que você acha que causou esse sentimento?"]
         }
 ]}
