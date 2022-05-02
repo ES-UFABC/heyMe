@@ -43,24 +43,32 @@ def register():
     data = request.get_json()
     msg = ''
     response = None
-    if data['username'] and data['password'] and data['email']:
+    if data['username'] and data['password'] and data['email'] and data['is_therapist']:
         name = data['username']
         password = data['password']
         email = data['email']
+        isTherapist = 1 if data['is_therapist'] == "True" else 0
+        crp = None
+        if(isTherapist == 1):
+            crp = data['crp']
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('SELECT * FROM heyMe.user WHERE email = %s', (email,))
         account = cursor.fetchone()
         if account:
             msg = 'Conta já existente!'
+            response = jsonify(success=False, msg=msg)
         elif not regex.match(r'[^@]+@[^@]+\.[^@]+', email):
             msg = 'Email inválido!'
+            response = jsonify(success=False, msg=msg)
         elif not regex.match(r'[\p{L}\s]+', name):
             msg = 'Nome só pode ter letras!'
+            response = jsonify(success=False, msg=msg)
         elif not name or not password or not email:
             msg = 'Complete os campos faltantes!'
+            response = jsonify(success=False, msg=msg)
         else:
-            cursor.execute('INSERT INTO heyMe.user VALUES (null, %s, %s, %s, %s)', (
-                email, hashlib.sha256(password.encode()).hexdigest(), name, datetime.now()))
+            cursor.execute('INSERT INTO heyMe.user VALUES (null, %s, %s, %s, %s, %s, %s)', (
+                email, hashlib.sha256(password.encode()).hexdigest(), name, datetime.now(), isTherapist, crp))
             mysql.connection.commit()
             msg = 'Registrado com sucesso!'
             response = jsonify(success=True, msg=msg)
@@ -84,10 +92,10 @@ def login():
         account = cursor.fetchone()
         if account:
             additional_claims = {
-                "user_id": account['id'], "username": account['name'], "email": account['email']}
+                "user_id": account['id'], "username": account['name'], "email": account['email'], "isTherapist": account['is_therapist']}
             access_token = create_access_token(
                 email, additional_claims=additional_claims)
-            response = jsonify(success=True, access_token=access_token, code=200)
+            response = jsonify(success=True, access_token=access_token, isTherapist=account['is_therapist'], code=200)
         else:
             response = jsonify(msg='Email ou senha incorreta!', success=False, code=401)
     elif request.method == 'POST':
