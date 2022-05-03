@@ -3,10 +3,7 @@ from flask_jwt_extended import JWTManager, jwt_required, create_access_token, ge
 from flask_mysqldb import MySQL
 from flask_cors import CORS
 from datetime import datetime, timedelta
-import MySQLdb.cursors
-import regex
-import hashlib
-import chatbot
+import MySQLdb.cursors, regex, hashlib, chatbot
 
 application = Flask(__name__)
 
@@ -67,7 +64,7 @@ def register():
             msg = 'Complete os campos faltantes!'
             response = jsonify(success=False, msg=msg)
         else:
-            cursor.execute('INSERT INTO heyMe.user VALUES (null, %s, %s, %s, %s, %s, %s)', (
+            cursor.execute('INSERT INTO heyMe.user VALUES (null, %s, %s, %s, %s, %s, %s, null)', (
                 email, hashlib.sha256(password.encode()).hexdigest(), name, datetime.now(), isTherapist, crp))
             mysql.connection.commit()
             msg = 'Registrado com sucesso!'
@@ -213,6 +210,20 @@ def parse_message(message):
             chatbot.possible_outcomes[k] = 0
     res.headers.add("Access-Control-Allow-Origin", "*")
     return res
+
+@application.route("/patients", methods=["GET"])
+@jwt_required()
+def get_patients():
+    claims = get_jwt()
+    user_id = claims["user_id"]
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute('SELECT id, email, name FROM heyMe.user WHERE therapist_id = %s',
+                   (user_id,))
+    patients = cursor.fetchall()
+    msg = 'Sucesso!'
+    response = jsonify(success=True, msg=msg, patients=patients, code=200)
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    return response
 
 if __name__ == "__main__":
     application.run(host='localhost', debug=True)
