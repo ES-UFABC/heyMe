@@ -9,9 +9,9 @@ import {BrowserRouter as Router, Link,
 	
   function App() {
 	// amazon: https://cors-everywhere.herokuapp.com/http://heymeapi-env-1.eba-5rahmizp.us-east-1.elasticbeanstalk.com
-	localStorage.setItem("api-endpoint","https://cors-everywhere.herokuapp.com/http://heymeapi-env-1.eba-5rahmizp.us-east-1.elasticbeanstalk.com");
-	localStorage.setItem("api-origin", "https://main.d1w1cxbdfenujy.amplifyapp.com");
-	// amazon: "https://main.d1w1cxbdfenujy.amplifyapp.com"
+	localStorage.setItem("api-endpoint","http://localhost:5000");
+	localStorage.setItem("api-origin", "http://localhost:3000");
+	// amazon: "https://main.d1w1cxbdfenujy.amplifyapp.com/"
 	// local: http://localhost:3000
 	return (
 	  <div className="App">

@@ -21,6 +21,7 @@ function Login() {
 
 				if (res['success'] == true) {
 					localStorage.setItem('token', res['access_token']);
+					localStorage.setItem('isTherapist', res['isTherapist']);
 					console.log('token on login', res['access_token']);
 					navigate('/welcome');
 				}
