@@ -49,7 +49,7 @@ Funcionalidade em que a pessoa poderá mandar mensagem pra algum(a) psicólogo(a
 
 * Bibliotecas utilizadas no Python:
 
-###`random, json, pickle, numpy e nlkt`
+### `random, json, pickle, numpy e nlkt`
 
 ## Execução
 
