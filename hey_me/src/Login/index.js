@@ -1,6 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { CometChat } from "@cometchat-pro/chat";
+
 
 function Login() {
 	function handleClick() {
@@ -14,6 +16,24 @@ function Login() {
 				"Origin": localStorage.getItem("api-origin")
 			}
 		};
+
+		var ustr = (document.getElementById('email').value);
+		var UID =  ustr.substring(0, ustr.indexOf('@'));
+        var authKey = "8f1ed710ae8fbed4da3f774ed784e1458c18f4a1";
+
+
+        CometChat.login(UID, authKey).then(
+          (User) => {
+            console.log("Login Successful:", { User });
+			localStorage.setItem("userid", User.uid);
+			localStorage.setItem("useremail", UID);
+          },
+          (error) => {
+            console.log("Login failed with exception:", { error });
+            // User login failed, check error and take appropriate action.
+          }
+        );
+
 		axios.post(`${localStorage.getItem("api-endpoint")}/login_back`, sendData, config)
             .then(function(response){
 				res = response.data;
@@ -22,7 +42,7 @@ function Login() {
 				if (res['success'] == true) {
 					localStorage.setItem('token', res['access_token']);
 					localStorage.setItem('isTherapist', res['isTherapist']);
-					console.log('token on login', res['access_token']);
+					console.log('login type', res['isTherapist']);
 					navigate('/welcome');
 				}
        //Perform action based on response

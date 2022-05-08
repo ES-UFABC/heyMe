@@ -1,7 +1,9 @@
+from numpy import broadcast
 from flask import Flask, jsonify, render_template, request, redirect, url_for, session
 from flask_jwt_extended import JWTManager, jwt_required, create_access_token, get_jwt
 from flask_mysqldb import MySQL
 from flask_cors import CORS
+# from flask_socketio import SocketIO, send
 from datetime import datetime, timedelta
 import MySQLdb.cursors, regex, hashlib, chatbot
 
@@ -25,6 +27,8 @@ jwt = JWTManager(application)
 
 mysql = MySQL(application)
 
+# socketIo = SocketIO(application, cors_allow_origins="*")
+
 jwt_blocklist = []
 
 last_sent_response = ''
@@ -34,6 +38,11 @@ def check_if_token_is_revoked(jwt_header, jwt_payload):
     jti = jwt_payload["jti"]
     return jti in jwt_blocklist
 
+# @socketIo.on("message")
+# def handleMessage(msg):
+#     print(msg)
+#     send(msg, broadcast=True)
+#     return None
 
 @application.route('/register_back', methods=['POST'])
 def register():

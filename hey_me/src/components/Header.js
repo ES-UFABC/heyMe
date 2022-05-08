@@ -8,6 +8,7 @@ import { CSSTransition } from "react-transition-group";
 export default function Header() {
   const [isNavVisible, setNavVisibility] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
+	var isTherapist = localStorage.getItem('isTherapist');
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 700px)");
@@ -56,20 +57,15 @@ export default function Header() {
         });
   }
 
-  // function handleClickDiary() {
-  //   navigate('/diario');
-  // }
-
   const navigate = useNavigate();
 
   return (
     <header className="Header">
-      {/* <nav className="Logo"> */}
           <table className="Logo">
             <thead>
               <tr>
                   <td>
-                  <img src={require("../assets/psychology.png")} alt="logo"/>
+                    <img src={require("../assets/psychology.png")} alt="logo"/>
                   </td>
                   <td style={{verticalAlign: 'top', borderTop: '400px', marginTop: 20}}>
                     <h2 className='titulo'>
@@ -88,8 +84,13 @@ export default function Header() {
       >
         <nav className="Nav">
           <a href="/welcome">Home</a>
-          <a href="/diario">Diario</a>
-          <a href="/chat">Chat</a>
+          {isTherapist == '0' && 
+            <a href="/diario">Diario</a>
+          }
+          {isTherapist == '0' && 
+            <a href="/chat">Charles</a>
+          }
+          <a href="/messages">Chat</a>
           <button onClick={handleClick}>Logout</button>
         </nav>
       </CSSTransition>

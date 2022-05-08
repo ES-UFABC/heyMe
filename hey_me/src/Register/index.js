@@ -1,6 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { CometChat } from "@cometchat-pro/chat";
+
+function Switch({ isOn, handleToggle }) {
+	return (
+	  <>
+		<input
+		  checked={isOn}
+		  onChange={handleToggle}
+		  className="react-switch-checkbox"
+		  id={`react-switch-new`}
+		  type="checkbox"
+		/>
+		<label
+		  style={{ background: isOn && '#06D6A0' }}
+		  className="react-switch-label"
+		  htmlFor={`react-switch-new`}
+		>
+		  <span className={`react-switch-button`} />
+		</label>
+	  </>
+	);
+  }
 
 function Register() {
 	const navigate = useNavigate();
@@ -9,14 +31,36 @@ function Register() {
 		let sendData = {
 			'email': document.getElementById('email').value,
 			'password': document.getElementById('password').value,
-			'username': document.getElementById('username').value
+			'username': document.getElementById('username').value,
+			'is_therapist': (value) ? "True" : "False",
+			'crp': document.getElementById('crp').value
 		};
 		let config = {
 			header:{
 				"Origin": localStorage.getItem("api-origin")
 			}
 		};
-		const article = { title: 'React POST Request Example' };
+
+		let authKey = "8f1ed710ae8fbed4da3f774ed784e1458c18f4a1";
+		var ustr = (document.getElementById('email').value);
+		var uid = ustr.substring(0, ustr.indexOf('@'));
+		// var name = document.getElementById('username').value;
+
+		var user = new CometChat.User(uid);
+
+		user.setName(document.getElementById('username').value);
+
+		CometChat.createUser(user, authKey).then(
+			user1 => {
+				console.log("user created", user1);
+				localStorage.setItem("userid", user1.uid);
+				localStorage.setItem("useremail", ustr);
+			},error => {
+				console.log("uid", uid, " user ", user);
+				console.log("error", error);
+			}
+		)
+		
 		axios.post(`${localStorage.getItem("api-endpoint")}/register_back`, sendData, config)
 			.then(function(response) {
 				//Perform action based on response
@@ -34,6 +78,7 @@ function Register() {
 		});
 		
 	}
+	const [value, setValue] = useState(false);
 	return (
 		<div className="register">
 			<table className="Logo2">
@@ -56,23 +101,36 @@ function Register() {
 			<div className="links">
 				<a href="/login">Logar</a>
 				<a href="/register" className="active">Registrar</a>
+				<Switch
+					isOn={value}
+					handleToggle={() => setValue(!value)} />
+				{!value && <a>Paciente</a>}
+				{value && <a>Psicólogo(a)</a>}
 			</div>
 			<form>
-				<label for="username">
+				<label id="lusername">
 					<i className="fas fa-user"></i>
 				</label>
 				<input type="text" name="username" placeholder="Nome" id="username" required/>
 				
-				<label for="email">
+				<label id="lemail">
 					<i className="fas fa-envelope"></i>
 				</label>
 				<input type="email" name="email" placeholder="E-mail" id="email" required/>
 
-				<label for="password">
+				{value && 
+					<>
+						<label id="lcrp">
+							<i className="fa-solid fa-notes-medical"></i>
+						</label>
+						<input type="text" pattern="[0-9]*" name="crp" placeholder="CRP" id="crp" required/>
+					</>
+				}
+
+				<label id="lpassword">
 					<i className="fas fa-lock"></i>
 				</label>
 				<input type="password" name="password" placeholder="Senha" id="password" required/>
-
 				
 				<button type="button" name="btnRegister" onClick={handleClick}>Registrar</button>
 			</form>
