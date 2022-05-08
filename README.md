@@ -45,11 +45,15 @@ Funcionalidade em que a pessoa poderá mandar mensagem pra algum(a) psicólogo(a
 
 ## Instalação
 
-* TODO.
+### `npm install`
+
+* Bibliotecas utilizadas no Python:
+
+random, json, pickle, numpy e nlkt
 
 ## Execução
 
-* TODO.
+### `npm start`
 
 ## Licença
 
