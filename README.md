@@ -20,17 +20,17 @@ Esta aplicação visa auxiliar as pessoas oferencendo um "pré" atendimento psic
 
 Consonantemente, a cada conversa, se o Chatbot achar necessário, poderá indicar encaminhamento psicólogo e/ou atendimento. Adicionalmente, há uma opção para relatar sua rotina através de um diário para que o usuário pudesse se sentir confortável e ter onde guardar algo mais íntimo. 
 
-Inicialmente o projeto seria dividido em 4 partes:
+O projeto contem as seguintes features:
 
 ### Diário Pessoal
 
-O usuário poderá fazer anotações diárias pessoais, levando em consideração suas atitudes e reflexões que fazem bem ou não pra si.
+O usuário pode fazer anotações diárias pessoais, levando em consideração suas atitudes e reflexões que fazem bem ou não pra si.
 
 ### Chatbot Companheiro
 
-Chatbot com a finalidade de oferecer instruções gerais sobre o que fazer se a pessoa estiver se sentindo mal, mas também contribuir com aqueles que se sentem bem a manter os bons hábitos. O chatbot também poderá explicar alguns problemas de forma simplificada, e orientar a buscar ajuda profissional sempre que possível.
+O chatbot tem como função ser alguém com quem o usuário pode conversar sobre os seus problemas psicológicos, e sua inteligência artificial é capaz de identificar sintomas de depressão e de transtornos de ansiedade, sendo assim capaz de realizar um pré-diagnóstico sobre os problemas do paciente. A partir do momento em que é identificado o transtorno psicológico que o paciente tem mais probabilidade de ter, o chatbot o apresenta a possibilidade de ser encaminhado para um psicólogo com o qual ele possa conversar em mais detalhes sobre seus problemas para assim buscar um tratamento mais individualizado.
 
-### Busque Ajuda 
+### Chat com psicólogo(a)
 
 Funcionalidade em que a pessoa poderá mandar mensagem pra algum(a) psicólogo(a). Mesmo que o usuário não possa fazer uma terapia contínua, ele poderá conversar com alguém de forma "assíncrona".
 
