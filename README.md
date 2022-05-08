@@ -34,10 +34,6 @@ Chatbot com a finalidade de oferecer instruções gerais sobre o que fazer se a 
 
 Funcionalidade em que a pessoa poderá mandar mensagem pra algum(a) psicólogo(a). Mesmo que o usuário não possa fazer uma terapia contínua, ele poderá conversar com alguém de forma "assíncrona".
 
-### Dia a dia 
-
-Cronograma com atividades pra ajudar a pessoa a se desenvolver melhor no dia a dia.
-
 ## Tecnologias Utilizadas
 
 * Python - Flask;
