@@ -55,6 +55,7 @@ Funcionalidade em que a pessoa poderá mandar mensagem pra algum(a) psicólogo(a
 ## Execução
 
 ### `npm start`
+### `py hey_me/api/application.py`
 
 ## Licença
 
