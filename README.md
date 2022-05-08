@@ -28,7 +28,7 @@ O usuário pode fazer anotações diárias pessoais, levando em consideração s
 
 ### Chatbot Companheiro
 
-O chatbot tem como função ser alguém com quem o usuário pode conversar sobre os seus problemas psicológicos, e sua inteligência artificial é capaz de identificar sintomas de depressão e de transtornos de ansiedade, sendo assim capaz de realizar um pré-diagnóstico sobre os problemas do paciente. A partir do momento em que é identificado o transtorno psicológico que o paciente tem mais probabilidade de ter, o chatbot o apresenta a possibilidade de ser encaminhado para um psicólogo com o qual ele possa conversar em mais detalhes sobre seus problemas para assim buscar um tratamento mais individualizado.
+O chatbot tem como função ser alguém com quem o usuário possa conversar sobre os seus problemas psicológicos, e sua inteligência artificial é capaz de identificar sintomas de depressão e de transtornos de ansiedade, sendo assim capaz de realizar um pré-diagnóstico sobre os problemas do paciente. A partir do momento em que é identificado o transtorno psicológico que o paciente tem mais probabilidade de ter, o chatbot o apresenta a possibilidade de ser encaminhado para um psicólogo com o qual ele possa conversar em mais detalhes sobre seus problemas para assim buscar um tratamento mais individualizado.
 
 ### Chat com psicólogo(a)
 
