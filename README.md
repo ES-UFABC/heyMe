@@ -73,6 +73,40 @@ Posteriormente, execute o comando abaixo dentro do repositório do projeto:
 ```bash
 py hey_me/api/application.py
 ```
+## Cloud Service AWS
+### BackEnd
+* CI/CD using CodePipeline
+* Hosted on Elastic Beanstalk:
+http://heymeapi-env-1.eba-5rahmizp.us-east-1.elasticbeanstalk.com/
+* Instance type: t3.small
+
+### FrontEnd
+* Hosted on the AWS Amplify:
+https://main.d2zkwp21ziyzwg.amplifyapp.com/
+* Build Settings:
+```
+version: 1
+applications:
+  - frontend:
+      phases:
+        preBuild:
+          commands:
+            - npm cache clean --force
+            - npm install
+        build:
+          commands:
+            - npm run build
+      artifacts:
+        baseDirectory: build
+        files:
+          - '**/*'
+    appRoot: hey_me
+```
+
+### DataBase
+* Hosted on the Amazon RDS
+* Engine: MySQL Community
+* Class: db.t3.micro
 
 ## Licença
 
