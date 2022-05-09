@@ -1,6 +1,4 @@
-# heyMe
-
-### Apoio Psicológico
+# heyMe - Apoio Psicológico
 
 Atividade desenvolvida para a disciplina de Engenharia de Software da UFABC - ministrada pelo docente Paulo Meirelles e, pelos estudantes:
 
@@ -12,7 +10,7 @@ Atividade desenvolvida para a disciplina de Engenharia de Software da UFABC - mi
 
 ### IMPORTANTE:
 
-    Esse projeto NÃO seguiu qualquer Conselho e nem foi aprovado por qualquer órgão ou especialista ligado ao Conselho Federal de Psicologia Brasileiro.
+    Esse projeto NÃO seguiu qualquer conselho e nem foi aprovado por qualquer órgão ou especialista ligado ao Conselho Federal de Psicologia Brasileiro.
 
 ## Descrição do Projeto
 
@@ -42,22 +40,73 @@ Funcionalidade em que a pessoa poderá mandar mensagem pra algum(a) psicólogo(a
 
 * MySQL.
 
-
 ## Instalação
 
-### `npm install`
+Neste projeto, utilizou-se as seguintes bibliotecas (Python):
 
-* Bibliotecas utilizadas no Python:
+```bash
+random, json, pickle, numpy e nlkt
+```
 
-### `random, json, pickle, numpy e nlkt`
+Para instalá-las, inicialmente instale as dependências Node Package Manager:
 
-Para instalá-las, basta executar o comando abaixo:
-### `pip install -r requirements.txt`
+```bash
+npm install
+```
+
+Na sequência, basta executar o comando abaixo dentro do repositório do projeto:
+
+```bash
+pip install -r requirements.txt
+```
 
 ## Execução
 
-### `npm start`
-### `py hey_me/api/application.py`
+Para executar o projeto, inicialize as dependências Node Package Manager:
+
+```bash
+npm start
+```
+
+Posteriormente, execute o comando abaixo dentro do repositório do projeto:
+
+```bash
+py hey_me/api/application.py
+```
+## Cloud Service AWS
+### BackEnd
+* CI/CD using CodePipeline
+* Hosted on Elastic Beanstalk:
+http://heymeapi-env-1.eba-5rahmizp.us-east-1.elasticbeanstalk.com/
+* Instance type: t3.small
+
+### FrontEnd
+* Hosted on the AWS Amplify:
+https://main.d2zkwp21ziyzwg.amplifyapp.com/
+* Build Settings:
+```
+version: 1
+applications:
+  - frontend:
+      phases:
+        preBuild:
+          commands:
+            - npm cache clean --force
+            - npm install
+        build:
+          commands:
+            - npm run build
+      artifacts:
+        baseDirectory: build
+        files:
+          - '**/*'
+    appRoot: hey_me
+```
+
+### DataBase
+* Hosted on the Amazon RDS
+* Engine: MySQL Community
+* Class: db.t3.micro
 
 ## Licença
 
