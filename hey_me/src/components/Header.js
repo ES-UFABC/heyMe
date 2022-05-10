@@ -88,9 +88,9 @@ export default function Header() {
             <a href="/diario">Diario</a>
           }
           {isTherapist == '0' && 
-            <a href="/chat">Charles</a>
+            <a href="/chat">Chatbot</a>
           }
-          <a href="/messages">Chat</a>
+          <a href="/messages">Terapeuta</a>
           <button onClick={handleClick}>Logout</button>
         </nav>
       </CSSTransition>

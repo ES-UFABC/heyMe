@@ -185,14 +185,14 @@ function Welcome() {
 												{/* <MoreVertIcon /> */}
 												</IconButton>
 											}
-											title="Charles"
+											title="Chatbot"
 											//   subheader="September 14, 2016"
 											/>
 											<CardMedia
 											component="img"
 											height="194"
 											image={require("../assets/charles.png")}
-											alt="Charles"
+											alt="chatbot"
 											/>
 											<CardContent>
 											<Typography variant="body2" color="text.secondary">
