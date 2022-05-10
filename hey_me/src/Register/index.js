@@ -33,7 +33,7 @@ function Register() {
 			'password': document.getElementById('password').value,
 			'username': document.getElementById('username').value,
 			'is_therapist': (value) ? "True" : "False",
-			'crp': document.getElementById('crp').value
+			'crp': (value) ? document.getElementById('crp').value : null
 		};
 		let config = {
 			header:{
