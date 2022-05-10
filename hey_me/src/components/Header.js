@@ -90,7 +90,13 @@ export default function Header() {
           {isTherapist == '0' && 
             <a href="/chat">Chatbot</a>
           }
-          <a href="/messages">Terapeuta</a>
+          {isTherapist == '0' && 
+            <a href="/messages">Terapeuta</a>
+          }
+          {isTherapist != '0' && 
+            <a href="/messages">Pacientes</a>
+          }
+          {/* <a href="/messages">Terapeuta</a> */}
           <button onClick={handleClick}>Logout</button>
         </nav>
       </CSSTransition>
