@@ -138,7 +138,7 @@ function Welcome() {
 					</div>				
 					}
 					{terapistload == 0 &&
-					<table>
+					<table className="tbl-paciente">
 						<tbody>
 							<tr>
 								<td>

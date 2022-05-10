@@ -199,10 +199,13 @@
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
     margin: 25px 0;
     padding: 25px;
-  background-color: #fff;
+    background-color: #fff;
   }
   .content > p table td, .content > div table td {
-  padding: 5px;
+    padding: 5px;
+    position: center;
+    margin-left: auto;
+    margin-right: auto;
   }
   .content > p table td:first-child, .content > div table td:first-child {
   font-weight: bold;
@@ -244,7 +247,11 @@
   /* welcome */
 .tbl-all{
     width: 900px;
-    position: absolute;
+    /* position: absolute; */
+    position: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
     /* z-index: 999; */
     /* width: 100%; */
     /* min-width: 1024px; */
@@ -294,4 +301,11 @@
 
   .tbl-all table tbody tr:hover{  
     background: #3a99d8;
+}
+
+.tbl-paciente {
+  position: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
 }
