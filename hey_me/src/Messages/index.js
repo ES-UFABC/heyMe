@@ -70,7 +70,8 @@ const Messages = () => {
               }
             <br/><br/><br/><br/><br/>
     
-            <div style={{width: '800px', height:'800px' }}>
+            <div style={{width: '800px', height:'700px' , position: 'center', marginLeft: 'auto',
+             marginRight: 'auto', marginTop: '-150px'}}>
             <CometChatUI/>
             {/* <CometChatUserListWithMessages chatWithUser="superhero5" /> */}
             </div>
