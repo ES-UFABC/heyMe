@@ -29,7 +29,7 @@ function RenderTable () {
 					<tr key={item['id']}>
 						<td>{item['name']}</td>
 						<td>{item['email']}</td>
-						<td><i className="fa-solid fa-comment-dots fa-1.5x" style={{color:"rgb(220, 206, 206)"}}></i></td>
+						<td><a href="/messages" className="fa-solid fa-comment-dots fa-1.5x" style={{color:"rgb(220, 206, 206)", textDecoration: "none"}}></a></td>
 					</tr>
 				)
 			}
@@ -37,6 +37,7 @@ function RenderTable () {
 	}
 	</>
 }
+
 
 function Welcome() {
 	var validate = 2;
