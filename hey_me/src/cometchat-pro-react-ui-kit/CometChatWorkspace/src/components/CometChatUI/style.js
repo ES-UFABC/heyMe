@@ -6,6 +6,7 @@ export const unifiedStyle = (props) => {
         width: "100%",
         boxSizing: "border-box",
         fontFamily: `${props.theme.fontFamily}`,
+        backgroundColor: `${props.theme.backgroundColor.white}`,
         border: `1px solid ${props.theme.borderColor.primary}`,
         position: "relative",
         "*": {
@@ -32,7 +33,7 @@ export const unifiedSidebarStyle = (state, props) => {
 
     const sidebarView = (state.sidebarview) ? {
         left: "0",
-        boxShadow : "rgba(0, 0, 0, .4) -30px 0 30px 30px"
+        boxShadow : "rgba(1, 1, 1, 0) -30px 0 30px 30px"
     } : {};
 
     const mq = [...props.theme.breakPoints];
