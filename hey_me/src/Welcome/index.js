@@ -160,7 +160,7 @@ function Welcome() {
 											<CardMedia
 											component="img"
 											height="194"
-											image={require("../assets/diary-512.png")}
+											image={require("../assets/diary.png")}
 											alt="Diario"
 											/>
 											<CardContent>
