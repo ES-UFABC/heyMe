@@ -209,6 +209,22 @@ def parse_message(message):
     if last_sent_response.startswith('|#|') and message == 'sim':
         print("caiu certo", last_sent_response)
         ints = chatbot.predict_class(last_sent_response)
+    elif last_sent_response.startswith('|@|') and message == 'sim_final':
+        claims = get_jwt()
+        user_id = claims["user_id"]
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute("UPDATE heyMe.user SET therapist_id = '32' WHERE (id = %s)", (user_id,))
+        mysql.connection.commit()
+        msg = 'Redirecionando para o terapeuta...'
+        res = jsonify(success=True, msg=msg)
+        res.headers.add("Access-Control-Allow-Origin", "*")
+        return res
+        
+    elif last_sent_response.startswith('|@|') and message == 'nao_final':
+        msg = "Tudo bem. Estarei à sua disposição para conversar mais se você quiser."
+        res = jsonify(success=True, msg=msg)
+        res.headers.add("Access-Control-Allow-Origin", "*")
+        return res
     else:
         ints = chatbot.predict_class(message)
     msg = chatbot.get_response(ints, repeated)
