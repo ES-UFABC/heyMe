@@ -81,7 +81,7 @@ def get_response(intents_list, repeated):
                     
                 for k, v in possible_outcomes.items():
                     if v > 3:
-                        result = "Acho que seu caso é complicado demais para mim, pois creio que possa estar com {}. Gostaria de seguir para um acompanhamento com psicoterapeuta?".format(k)
+                        result = "|@|Acho que seu caso é complicado demais para mim, pois creio que possa estar com {}. Gostaria de seguir para um acompanhamento com psicoterapeuta?".format(k)
                         return result
                 result = random.choice(i['responses'])
             break
