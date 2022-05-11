@@ -48,7 +48,7 @@ const Messages = () => {
     return (
         <div>
             <Header />
-            <br/><br/><br/><br/><br/>
+            <br/><br/><br/>
         {localStorage.getItem('useremail') && 
             (
             <section id="chat_body">
@@ -68,10 +68,10 @@ const Messages = () => {
                     {/* <button onClick={(e) => addFriend(e)}>Add Friend</button> */}
                 </div>  
               }
-            <br/><br/><br/><br/><br/>
+            <br/><br/>
     
-            <div style={{width: '800px', height:'700px' , position: 'center', marginLeft: 'auto',
-             marginRight: 'auto', marginTop: '-150px'}}>
+            <div style={{width: '800px', height:'600px' , position: 'center', marginLeft: 'auto',
+             marginRight: 'auto'}}>
             <CometChatUI/>
             {/* <CometChatUserListWithMessages chatWithUser="superhero5" /> */}
             </div>
