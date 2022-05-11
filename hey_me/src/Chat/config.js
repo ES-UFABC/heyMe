@@ -2,6 +2,7 @@
 import { createChatBotMessage } from "react-chatbot-kit";
 
 import LearningOptions from "./LearningOptions";
+import FinalResponse from "./FinalResponse";
 
 const config = {
 	initialMessages: [createChatBotMessage(`Olá!`)],
@@ -27,6 +28,10 @@ const config = {
 			widgetName: "learningOptions",
 		widgetFunc: (props) => <LearningOptions {...props} />,
 		},
+		{
+			widgetName: "finalResponse",
+		widgetFunc: (props) => <FinalResponse {...props} />,
+		}
 	],
 }
 

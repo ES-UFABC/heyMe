@@ -53,6 +53,14 @@ class ActionProvider {
 			});
 			this.updateChatbotState(responseMessage);
 		}
+		else if (message.startsWith("|@|")) {
+			console.log("inside if");
+			message = message.substring(3, message.length);
+			const responseMessage = this.createChatBotMessage(message, {
+				widget: "finalResponse",
+			});
+			this.updateChatbotState(responseMessage);
+		}
 		else {
 			console.log("mensagem seca");
 			const responseMessage = this.createChatBotMessage(message);
