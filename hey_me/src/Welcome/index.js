@@ -13,6 +13,8 @@ import Avatar from '@mui/material/Avatar';
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
+import { CardActionArea } from '@mui/material';
+
 // import FavoriteIcon from '@mui/icons-material/Favorite';
 // import ShareIcon from '@mui/icons-material/Share';
 // import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -37,6 +39,8 @@ function RenderTable () {
 	}
 	</>
 }
+
+
 
 
 function Welcome() {
@@ -144,12 +148,14 @@ function Welcome() {
 							<tr>
 								<td>
 									<Card sx={{ maxWidth: 345 }}>
+										<CardActionArea>
+										<a href="/diario" style={{textDecoration: "none"}}>
 											<CardHeader
-											avatar={
-												<Avatar sx={{ bgcolor: red[500] }} aria-label="diario">
-												D
-												</Avatar>
-											}
+											// avatar={
+											// 	<Avatar sx={{ bgcolor: red[500] }} aria-label="diario">
+											// 	D
+											// 	</Avatar>
+											// }
 											action={
 												<IconButton aria-label="settings">
 												{/* <MoreVertIcon /> */}
@@ -171,16 +177,20 @@ function Welcome() {
 											</CardContent>
 											<CardActions disableSpacing>
 											</CardActions>
+											</a>
+											</CardActionArea>
 										</Card>
 									</td>
 									<td>
 										<Card sx={{ maxWidth: 345 }}>
+											<CardActionArea>
+											<a href="/chat" style={{textDecoration: "none"}}>
 											<CardHeader
-											avatar={
-												<Avatar sx={{ bgcolor: red[500] }} aria-label="chatbot">
-												C
-												</Avatar>
-											}
+											// avatar={
+											// 	<Avatar sx={{ bgcolor: red[500] }} aria-label="chatbot">
+											// 	C
+											// 	</Avatar>
+											// }
 											action={
 												<IconButton aria-label="settings">
 												{/* <MoreVertIcon /> */}
@@ -202,22 +212,26 @@ function Welcome() {
 											</CardContent>
 											<CardActions disableSpacing>
 											</CardActions>
+											</a>
+											</CardActionArea>
 										</Card>
 									</td>
 								  <td>
 									<Card sx={{ maxWidth: 345 }}>
+										<CardActionArea>
+										<a href="/messages" style={{textDecoration: "none"}}>
 										<CardHeader
-										avatar={
-											<Avatar sx={{ bgcolor: red[500] }} aria-label="psicologo">
-											P
-											</Avatar>
-										}
+										// avatar={
+										// 	<Avatar sx={{ bgcolor: red[500] }} aria-label="psicologo">
+										// 	P
+										// 	</Avatar>
+										// }
 										action={
 											<IconButton aria-label="settings">
 											{/* <MoreVertIcon /> */}
 											</IconButton>
 										}
-										title="Chat com psicologo"
+										title="Chat com psicoterapeuta"
 										//   subheader="September 14, 2016"
 										/>
 										<CardMedia
@@ -233,6 +247,8 @@ function Welcome() {
 										</CardContent>
 										<CardActions disableSpacing>
 										</CardActions>
+										</a>
+										</CardActionArea>
 									</Card>
 				  				</td>
 							</tr>
