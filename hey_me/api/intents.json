@@ -42,7 +42,7 @@
         },
     {"tag": "ansiedade2",
         "patterns": ["dificuldade dormir", "dificuldades dormir", "insônia", "sono leve", "acordo abruptamente", "pesadelos"],
-        "responses": ["|#|Há algo que te causa preocupação?", "|#|Você se sente inquieto (a)?", "Tem algum pensamento que não sai da sua cabeça?"]
+        "responses": ["|#|Há algo que te causa preocupação?", "|#|Você se sente inquieto (a)?", "|#|Tem algum pensamento que não sai da sua cabeça?"]
         },
     {"tag": "ansiedade3",
         "patterns": ["medo", "trauma", "traumatizado", "aterrorizado", "terror", "pavor", "temor", "pânico", "fobia", "aversão",
