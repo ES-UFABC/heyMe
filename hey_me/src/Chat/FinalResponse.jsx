@@ -1,6 +1,8 @@
 import React from "react";
 
 import "./LearningOptions.css";
+import { useNavigate } from "react-router-dom";
+
 
 const addPatient = () => {
 	// e.preventDefault();
@@ -25,12 +27,20 @@ const addPatient = () => {
 		  console.error(err);
 		  // alert("Adding Friend Failed!");
 		});
+
+
+		localStorage.setItem("lastMessage", "sim_final");
+
+
 };
 
 
 const FinalResponse = (props) => {
+	const navigate = useNavigate();
+
 	const options = [
-		{ text: "Sim", handler: () => {addPatient(); props.actionProvider.handleJavascriptList("sim_final")}, id: 1 },
+		{ text: "Sim", handler: () => {addPatient(); props.actionProvider.handleJavascriptList("sim_final");
+					 setTimeout(() => {  console.log("Redirecionando..."); navigate("/messages");}, 4000)}, id: 1 },
 		{ text: "Não", handler: () => {props.actionProvider.handleJavascriptList("nao_final")}, id: 2 },
 	];
 
