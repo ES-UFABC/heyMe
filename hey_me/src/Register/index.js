@@ -117,7 +117,8 @@ function Register() {
 				console.log(res['success']);
 				if (res['success'] == true) {
 					handleClickLogin();
-					navigate('/welcome');
+					setTimeout(() => {  console.log("Logando..."); navigate('/welcome');}, 1000)
+					// navigate('/welcome');
 				}
 		})
 		.catch(function(error){
