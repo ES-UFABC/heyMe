@@ -16,10 +16,6 @@
         "patterns": ["incomodou", "incomoda"],
         "responses": ["O que tem te incomodado?", "O que é que te incomoda?"]
         },
-    {"tag": "name",
-        "patterns": ["qual é o seu nome?", "quem é você?", "com quem estou falando?"],
-        "responses": ["Sou o Charles! Sou o chatbot do HeyMe!", "Sou um chatbot, me chamo Charles. Estou aqui para ajudar você"]
-        },
     {"tag": "ansiedade1",
         "patterns": ["nervoso", "nervosa", "nervosismo", "ansioso", "ansiosa", "ansiedade", "agitado", "agitada", "agitação"],
         "responses": ["|#|Você tem tido dificuldades para dormir?", "|#|Você tem tido insônia?", "|#|Você tem tido dificuldades para se concentrar?", 
