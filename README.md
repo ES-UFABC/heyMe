@@ -34,9 +34,11 @@ Funcionalidade em que a pessoa poderá mandar mensagem pra algum(a) psicólogo(a
 
 ## Tecnologias Utilizadas
 
-* Python - Flask;
+* Python;
 
-* React;
+* Flask;
+
+* React / Javascript;
 
 * MySQL.
 
