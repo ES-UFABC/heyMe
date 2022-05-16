@@ -34,9 +34,11 @@ Funcionalidade em que a pessoa poderá mandar mensagem pra algum(a) psicólogo(a
 
 ## Tecnologias Utilizadas
 
-* Python - Flask;
+* Python;
 
-* React;
+* Flask;
+
+* React / Javascript;
 
 * MySQL.
 
@@ -85,6 +87,7 @@ python hey_me/api/application.py    , no Linux ou MacOS
 ```
 
 ## Cloud Service AWS
+Essas foram as configurações usadas na Amazon Web Services:
 ### BackEnd
 * CI/CD using CodePipeline
 * Hosted on Elastic Beanstalk:
