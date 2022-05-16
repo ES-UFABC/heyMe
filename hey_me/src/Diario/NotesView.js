@@ -41,7 +41,7 @@ export default class NotesView {
                 <div class="notes__list"></div>
             </div>
             <div class="notes__preview">
-                <input class="notes__title" type="text" defaultValue="${dataAtual}"></input>
+                <input class="notes__title" type="text" value="${dataAtual}"></input>
                 <textarea class="notes__body">Querido diário...</textarea>
             </div>
         `;
