@@ -41,7 +41,7 @@ Funcionalidade em que a pessoa poderá mandar mensagem pra algum(a) psicólogo(a
 * MySQL.
 
 
-## Execução
+## Acessando o site
 O site está atualmente hospedado nos servidores da Amazon Web Services. Assim, se quiser acessá-lo, basta entrar no URL https://main.d2zkwp21ziyzwg.amplifyapp.com/. Caso queira rodar localmente, é preciso baixar os arquivos deste repositório e realizar a seguinte modificação no arquivo App.js do diretório heyMe/hey_me/src:
 
   Onde está escrito ```localStorage.setItem("api-origin", "https://main.d1w1cxbdfenujy.amplifyapp.com/");``` deve ser substituído por ```localStorage.setItem("api-origin", "http://localhost:3000");```
