@@ -77,8 +77,13 @@ npm start
 Posteriormente, execute o comando abaixo dentro do repositório do projeto:
 
 ```bash
-py hey_me/api/application.py
+py hey_me/api/application.py    , no Windows
 ```
+ou
+```bash
+python hey_me/api/application.py    , no Linux ou MacOS
+```
+
 ## Cloud Service AWS
 ### BackEnd
 * CI/CD using CodePipeline
