@@ -87,6 +87,7 @@ python hey_me/api/application.py    , no Linux ou MacOS
 ```
 
 ## Cloud Service AWS
+Essas foram as configurações usadas na Amazon Web Services:
 ### BackEnd
 * CI/CD using CodePipeline
 * Hosted on Elastic Beanstalk:
