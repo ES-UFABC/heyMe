@@ -4,7 +4,6 @@ import "./Header.css";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { CSSTransition } from "react-transition-group";
-import { CometChat } from "@cometchat-pro/chat";
 
 export default function Header() {
   const [isNavVisible, setNavVisibility] = useState(false);
@@ -49,13 +48,6 @@ export default function Header() {
             .then(function(response){
 				res = response.data;
         console.log(res);
-        CometChat.logout().then(
-          () => {
-            console.log("Logout completed successfully");
-          },error=>{
-            console.log("Logout failed with exception:",{error});
-          }
-        );
         navigate('/login');
        //Perform action based on response
         })
